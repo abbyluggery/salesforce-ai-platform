@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>OpportunityResumeGeneratorInvocable</members>
+        <members>OpportunityResumeGeneratorInvocableTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Resume_Package__c.Opportunity__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Generate_Resume_Package_for_Opportunity</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>Opportunity.Generate_Resume_Package</members>
+        <name>QuickAction</name>
+    </types>
+    <version>65.0</version>
+</Package>

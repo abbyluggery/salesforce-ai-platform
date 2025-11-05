@@ -1,0 +1,16 @@
+Dear {!Opportunity.Contact.FirstName},
+
+Thank you for taking the time to speak with me today about the {!Opportunity.Name} position at {!Opportunity.Account.Name}.
+
+I enjoyed learning more about the role and your team's initiatives. Our conversation reinforced my enthusiasm for this opportunity and my confidence that my Salesforce expertise would be a strong asset to your organization.
+
+I'm very excited about the possibility of contributing to your team and look forward to the next steps in the process.
+
+Please don't hesitate to reach out if you need any additional information.
+
+Thank you again for your time and consideration.
+
+Best regards,
+Abby Luggery
+{!User.Email}
+{!User.Phone}

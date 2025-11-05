@@ -2,37 +2,23 @@
  * Handler: OpportunityCreationHandler
  * Purpose: Business logic for creating Opportunities from Job Postings
  *
- * Handles the workflow when Application_Status__c = "Callback Received"
+ * Creates Opportunity, Account, and Contact immediately when Job_Posting__c is created.
+ * Job_Posting__c serves as a background staging object for AI analysis.
  */
 public with sharing class OpportunityCreationHandler {
 
     /**
      * Main handler method - processes Job_Posting__c records
-     * Creates Opportunity, Account, and Contact when callback occurs
+     * Creates Opportunity, Account, and Contact immediately on insert
      */
-    public static void handleOpportunityCreation(List<Job_Posting__c> newJobPostings, Map<Id, Job_Posting__c> oldJobPostingMap) {
+    public static void handleOpportunityCreation(List<Job_Posting__c> newJobPostings) {
 
-        List<Job_Posting__c> callbackJobPostings = new List<Job_Posting__c>();
-
-        // Filter for records where Application_Status__c changed to "Callback Received"
-        for (Job_Posting__c jobPosting : newJobPostings) {
-            String newStatus = jobPosting.Application_Status__c;
-            String oldStatus = (oldJobPostingMap != null && oldJobPostingMap.containsKey(jobPosting.Id))
-                ? oldJobPostingMap.get(jobPosting.Id).Application_Status__c
-                : null;
-
-            // Check if status changed to "Callback Received"
-            if (newStatus == 'Callback Received' && newStatus != oldStatus) {
-                callbackJobPostings.add(jobPosting);
-            }
-        }
-
-        if (callbackJobPostings.isEmpty()) {
+        if (newJobPostings == null || newJobPostings.isEmpty()) {
             return;
         }
 
-        // Process each callback job posting
-        createOpportunitiesFromJobPostings(callbackJobPostings);
+        // Process all new job postings immediately
+        createOpportunitiesFromJobPostings(newJobPostings);
     }
 
     /**
@@ -142,8 +128,9 @@ public with sharing class OpportunityCreationHandler {
             opp.Name = jp.Title__c + ' - ' + jp.Company__c;
             opp.AccountId = relatedAccount.Id;
             opp.Job_Posting__c = jp.Id;
-            opp.StageName = 'Screening Call';
+            opp.StageName = 'Job Discovered'; // Start at Job Discovered stage
             opp.CloseDate = Date.today().addDays(30); // Default 30 days out
+            opp.Job_Discovered_Date__c = System.now(); // Auto-set when opportunity is created
             opp.Description = 'Job opportunity from posting: ' + jp.Title__c + '\n\n' +
                              'Location: ' + (String.isNotBlank(jp.Location__c) ? jp.Location__c : 'Not specified');
 

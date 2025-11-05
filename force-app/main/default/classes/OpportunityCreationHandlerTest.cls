@@ -1,19 +1,23 @@
 /**
  * Test Class: OpportunityCreationHandlerTest
  * Purpose: Test coverage for OpportunityCreationHandler and OpportunityCreationTrigger
+ *
+ * Tests immediate Opportunity creation when Job_Posting__c is inserted (Option A implementation)
  */
 @isTest
 private class OpportunityCreationHandlerTest {
 
-    @testSetup
-    static void setupTestData() {
-        // Create a test Job Posting
+    @isTest
+    static void testOpportunityCreationOnInsert() {
+        Test.startTest();
+
+        // Insert Job Posting - should immediately create Opportunity
         Job_Posting__c jobPosting = new Job_Posting__c(
             Title__c = 'Senior Salesforce Developer',
             Company__c = 'Test Company Inc',
             Location__c = 'Remote - USA',
             Description__c = 'Test job description',
-            Application_Status__c = 'Applied',
+            Application_Status__c = 'Not Applied',
             Apply_URL__c = 'https://example.com/apply',
             ExternalID__c = 'TEST-12345',
             Provider__c = 'LinkedIn',
@@ -25,19 +29,6 @@ private class OpportunityCreationHandlerTest {
             Recruiter_LinkedIn__c = 'https://linkedin.com/in/janesmith'
         );
         insert jobPosting;
-    }
-
-    @isTest
-    static void testOpportunityCreationOnCallbackReceived() {
-        // Get the test job posting
-        Job_Posting__c jobPosting = [SELECT Id, Title__c, Company__c, Application_Status__c
-                                      FROM Job_Posting__c LIMIT 1];
-
-        Test.startTest();
-
-        // Update status to trigger opportunity creation
-        jobPosting.Application_Status__c = 'Callback Received';
-        update jobPosting;
 
         Test.stopTest();
 
@@ -61,7 +52,7 @@ private class OpportunityCreationHandlerTest {
                                            FROM Opportunity WHERE Job_Posting__c = :jobPosting.Id];
         System.assertEquals(1, opportunities.size(), 'Opportunity should be created');
         System.assertEquals('Senior Salesforce Developer - Test Company Inc', opportunities[0].Name, 'Opportunity name should match');
-        System.assertEquals('Screening Call', opportunities[0].StageName, 'Stage should be Screening Call');
+        System.assertEquals('Job Discovered', opportunities[0].StageName, 'Stage should be Job Discovered');
         System.assertEquals(accounts[0].Id, opportunities[0].AccountId, 'Opportunity should be linked to Account');
 
         // Verify Opportunity Contact Role was created
@@ -74,23 +65,6 @@ private class OpportunityCreationHandlerTest {
         System.assertEquals(true, contactRoles[0].IsPrimary, 'Should be primary contact');
     }
 
-    @isTest
-    static void testNoOpportunityCreationWhenStatusNotCallbackReceived() {
-        // Get the test job posting
-        Job_Posting__c jobPosting = [SELECT Id, Application_Status__c FROM Job_Posting__c LIMIT 1];
-
-        Test.startTest();
-
-        // Update to different status - should NOT trigger opportunity creation
-        jobPosting.Application_Status__c = 'Phone Screen';
-        update jobPosting;
-
-        Test.stopTest();
-
-        // Verify NO Opportunity was created
-        List<Opportunity> opportunities = [SELECT Id FROM Opportunity WHERE Job_Posting__c = :jobPosting.Id];
-        System.assertEquals(0, opportunities.size(), 'Opportunity should NOT be created for Phone Screen status');
-    }
 
     @isTest
     static void testExistingAccountReused() {
@@ -98,14 +72,22 @@ private class OpportunityCreationHandlerTest {
         Account existingAccount = new Account(Name = 'Test Company Inc');
         insert existingAccount;
 
-        // Get the test job posting
-        Job_Posting__c jobPosting = [SELECT Id, Application_Status__c FROM Job_Posting__c LIMIT 1];
-
         Test.startTest();
 
-        // Update status to trigger opportunity creation
-        jobPosting.Application_Status__c = 'Callback Received';
-        update jobPosting;
+        // Insert Job Posting with existing company name
+        Job_Posting__c jobPosting = new Job_Posting__c(
+            Title__c = 'Salesforce Consultant',
+            Company__c = 'Test Company Inc',
+            Location__c = 'Remote',
+            Application_Status__c = 'Not Applied',
+            Apply_URL__c = 'https://example.com/apply',
+            ExternalID__c = 'TEST-REUSE-1',
+            Provider__c = 'LinkedIn',
+            Status__c = 'Active',
+            Recruiter_Name__c = 'Bob Jones',
+            Recruiter_Email__c = 'bob@testcompany.com'
+        );
+        insert jobPosting;
 
         Test.stopTest();
 
@@ -120,14 +102,16 @@ private class OpportunityCreationHandlerTest {
     }
 
     @isTest
-    static void testMultipleJobPostingsCallbackReceived() {
-        // Create additional job postings
+    static void testMultipleJobPostingsInserted() {
+        Test.startTest();
+
+        // Insert multiple job postings at once
         List<Job_Posting__c> jobPostings = new List<Job_Posting__c>{
             new Job_Posting__c(
                 Title__c = 'Salesforce Architect',
                 Company__c = 'Tech Corp',
                 Location__c = 'San Francisco, CA',
-                Application_Status__c = 'Applied',
+                Application_Status__c = 'Not Applied',
                 Apply_URL__c = 'https://example.com/apply1',
                 ExternalID__c = 'TEST-22222',
                 Provider__c = 'LinkedIn',
@@ -139,7 +123,7 @@ private class OpportunityCreationHandlerTest {
                 Title__c = 'Salesforce Admin',
                 Company__c = 'Business Solutions LLC',
                 Location__c = 'New York, NY',
-                Application_Status__c = 'Applied',
+                Application_Status__c = 'Not Applied',
                 Apply_URL__c = 'https://example.com/apply2',
                 ExternalID__c = 'TEST-33333',
                 Provider__c = 'LinkedIn',
@@ -150,33 +134,27 @@ private class OpportunityCreationHandlerTest {
         };
         insert jobPostings;
 
-        Test.startTest();
-
-        // Update both to Callback Received
-        for (Job_Posting__c jp : jobPostings) {
-            jp.Application_Status__c = 'Callback Received';
-        }
-        update jobPostings;
-
         Test.stopTest();
 
-        // Verify 2 new accounts created (no account from test setup since it doesn't have callback)
+        // Verify 2 accounts created
         List<Account> accounts = [SELECT Id FROM Account];
         System.assertEquals(2, accounts.size(), 'Should create 2 accounts total');
 
-        // Verify 2 new opportunities created
+        // Verify 2 opportunities created
         List<Opportunity> opportunities = [SELECT Id FROM Opportunity WHERE Job_Posting__c IN :jobPostings];
         System.assertEquals(2, opportunities.size(), 'Should create 2 opportunities');
     }
 
     @isTest
     static void testJobPostingWithoutRecruiterName() {
-        // Create job posting without recruiter name
+        Test.startTest();
+
+        // Insert job posting without recruiter name
         Job_Posting__c jobPosting = new Job_Posting__c(
             Title__c = 'Developer Role',
             Company__c = 'Anonymous Corp',
             Location__c = 'Remote',
-            Application_Status__c = 'Applied',
+            Application_Status__c = 'Not Applied',
             Apply_URL__c = 'https://example.com/apply3',
             ExternalID__c = 'TEST-44444',
             Provider__c = 'LinkedIn',
@@ -186,11 +164,6 @@ private class OpportunityCreationHandlerTest {
         );
         insert jobPosting;
 
-        Test.startTest();
-
-        jobPosting.Application_Status__c = 'Callback Received';
-        update jobPosting;
-
         Test.stopTest();
 
         // Verify Contact was still created with default name
@@ -198,31 +171,5 @@ private class OpportunityCreationHandlerTest {
         System.assertEquals(1, contacts.size(), 'Contact should be created even without recruiter name');
         System.assertEquals('Recruiter', contacts[0].FirstName, 'Should use default first name');
         System.assertEquals('Anonymous Corp', contacts[0].LastName, 'Should use company name as last name');
-    }
-
-    @isTest
-    static void testJobPostingInsertWithCallbackReceived() {
-        Test.startTest();
-
-        // Insert NEW job posting with Callback Received status
-        Job_Posting__c jobPosting = new Job_Posting__c(
-            Title__c = 'Urgent Role',
-            Company__c = 'Fast Hire Inc',
-            Location__c = 'Austin, TX',
-            Application_Status__c = 'Callback Received',
-            Apply_URL__c = 'https://example.com/apply4',
-            ExternalID__c = 'TEST-55555',
-            Provider__c = 'LinkedIn',
-            Status__c = 'Active',
-            Recruiter_Name__c = 'Quick Recruiter',
-            Recruiter_Email__c = 'quick@fasthire.com'
-        );
-        insert jobPosting;
-
-        Test.stopTest();
-
-        // Verify Opportunity was created on insert
-        List<Opportunity> opportunities = [SELECT Id FROM Opportunity WHERE Job_Posting__c = :jobPosting.Id];
-        System.assertEquals(1, opportunities.size(), 'Opportunity should be created on insert with Callback Received status');
     }
 }

@@ -77,7 +77,11 @@ private class ClaudeAPIServiceTest {
             Workplace_Type__c = 'Remote',
             Remote_Policy__c = 'Fully Remote',
             Salary_Min__c = 85000,
-            Salary_Max__c = 120000
+            Salary_Max__c = 120000,
+            Apply_URL__c = 'https://example.com/apply',
+            Provider__c = 'LinkedIn',
+            ExternalID__c = 'TEST-CLAUDE-001',
+            Status__c = 'Active'
         );
         insert testJob;
 
@@ -170,7 +174,11 @@ private class ClaudeAPIServiceTest {
         Job_Posting__c testJob = new Job_Posting__c(
             Title__c = 'Test Job',
             Company__c = 'Test Company',
-            Location__c = 'Test Location'
+            Location__c = 'Test Location',
+            Apply_URL__c = 'https://example.com/apply',
+            Provider__c = 'LinkedIn',
+            ExternalID__c = 'TEST-CLAUDE-002',
+            Status__c = 'Active'
         );
         insert testJob;
 

@@ -55,7 +55,10 @@ private class JobPostingAnalyzerTest {
             Remote_Policy__c = 'Fully Remote',
             Salary_Min__c = 90000,
             Salary_Max__c = 130000,
-            Status__c = 'Pending Analysis'
+            Apply_URL__c = 'https://example.com/apply',
+            Provider__c = 'LinkedIn',
+            ExternalID__c = 'TEST-JOB-001',
+            Status__c = 'Active'
         );
         insert testJob;
 
@@ -92,12 +95,16 @@ private class JobPostingAnalyzerTest {
             Title__c = 'Test Job',
             Company__c = 'Test Company',
             Location__c = 'Test Location',
-            Status__c = 'Pending Analysis'
+            Apply_URL__c = 'https://example.com/apply',
+            Provider__c = 'LinkedIn',
+            ExternalID__c = 'TEST-JOB-002',
+            Status__c = 'Active'
         );
         insert testJob;
 
         // Retrieve to get all fields
-        testJob = [SELECT Id, Title__c, Company__c, Location__c
+        testJob = [SELECT Id, Title__c, Company__c, Location__c, Description__c,
+                         Workplace_Type__c, Remote_Policy__c, Salary_Min__c, Salary_Max__c
                    FROM Job_Posting__c WHERE Id = :testJob.Id];
 
         Test.startTest();
@@ -140,12 +147,16 @@ private class JobPostingAnalyzerTest {
             Title__c = 'Minimal Job',
             Company__c = 'Test Co',
             Location__c = 'Remote',
-            Status__c = 'Pending Analysis'
+            Apply_URL__c = 'https://example.com/apply',
+            Provider__c = 'LinkedIn',
+            ExternalID__c = 'TEST-JOB-003',
+            Status__c = 'Active'
         );
         insert testJob;
 
         // Retrieve to get all fields
-        testJob = [SELECT Id, Title__c, Company__c, Location__c
+        testJob = [SELECT Id, Title__c, Company__c, Location__c, Description__c,
+                         Workplace_Type__c, Remote_Policy__c, Salary_Min__c, Salary_Max__c
                    FROM Job_Posting__c WHERE Id = :testJob.Id];
 
         Test.startTest();

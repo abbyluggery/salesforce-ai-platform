@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Initial application email to recruiter after preparing resume package</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Initial Application Email</name>
+    <style>none</style>
+    <subject>Application for {!Opportunity.Name}</subject>
+    <textOnly>Dear {!Opportunity.Contact.FirstName},
+
+I hope this message finds you well. I am writing to express my strong interest in the {!Opportunity.Name} position.
+
+With my background in Salesforce and proven track record of success, I believe I would be an excellent fit for this role. I have attached my resume and cover letter for your review.
+
+I would welcome the opportunity to discuss how my experience and skills align with your team's needs. Please let me know if you need any additional information.
+
+I look forward to hearing from you.
+
+Best regards,
+Abby Luggery
+{!User.Email}
+{!User.Phone}</textOnly>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

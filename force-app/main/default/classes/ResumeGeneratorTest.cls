@@ -66,7 +66,11 @@ private class ResumeGeneratorTest {
             Description__c = 'Seeking Salesforce developer with Lightning experience',
             ND_Friendliness_Score__c = 9,
             Green_Flags__c = 'Remote work, Flexible hours',
-            Red_Flags__c = ''
+            Red_Flags__c = '',
+            Apply_URL__c = 'https://example.com/apply',
+            Provider__c = 'LinkedIn',
+            ExternalID__c = 'TEST-RESUME-001',
+            Status__c = 'Active'
         );
         insert testJob;
 
@@ -111,7 +115,11 @@ private class ResumeGeneratorTest {
         Job_Posting__c testJob = new Job_Posting__c(
             Title__c = 'Test Job',
             Company__c = 'Test Company',
-            Location__c = 'Remote'
+            Location__c = 'Remote',
+            Apply_URL__c = 'https://example.com/apply',
+            Provider__c = 'LinkedIn',
+            ExternalID__c = 'TEST-RESUME-002',
+            Status__c = 'Active'
         );
         insert testJob;
 
@@ -137,8 +145,6 @@ private class ResumeGeneratorTest {
     static void testCleanContent() {
         String contentWithMarkdown = '```apex\nSystem.debug(\"test\");\n```\nActual content here';
 
-        Test.startTest();
-
         // Access private method through test generation
         Master_Resume_Config__c masterResume = new Master_Resume_Config__c(
             Resume_Content__c = 'Test resume content'
@@ -148,13 +154,18 @@ private class ResumeGeneratorTest {
         Job_Posting__c testJob = new Job_Posting__c(
             Title__c = 'Test',
             Company__c = 'Test',
-            Location__c = 'Test'
+            Location__c = 'Test',
+            Apply_URL__c = 'https://example.com/apply',
+            Provider__c = 'LinkedIn',
+            ExternalID__c = 'TEST-RESUME-003',
+            Status__c = 'Active'
         );
         insert testJob;
 
         Test.setMock(HttpCalloutMock.class, new CleanContentMock());
-        Resume_Package__c pkg = ResumeGenerator.generateResumePackage(testJob.Id);
 
+        Test.startTest();
+        Resume_Package__c pkg = ResumeGenerator.generateResumePackage(testJob.Id);
         Test.stopTest();
 
         // Verify markdown was removed
@@ -204,7 +215,11 @@ private class ResumeGeneratorTest {
         Job_Posting__c testJob = new Job_Posting__c(
             Title__c = 'Test Job',
             Company__c = 'Test Company',
-            Location__c = 'Remote'
+            Location__c = 'Remote',
+            Apply_URL__c = 'https://example.com/apply',
+            Provider__c = 'LinkedIn',
+            ExternalID__c = 'TEST-RESUME-004',
+            Status__c = 'Active'
         );
         insert testJob;
 
@@ -213,9 +228,9 @@ private class ResumeGeneratorTest {
         );
         insert masterResume;
 
-        Resume_Package__c pkg = ResumeGenerator.generateResumePackage(testJob.Id);
-
         Test.startTest();
+
+        Resume_Package__c pkg = ResumeGenerator.generateResumePackage(testJob.Id);
 
         // Call view method (just verify it doesn't throw exception)
         ResumeGenerator.viewResumePackage(pkg.Id);
@@ -237,7 +252,11 @@ private class ResumeGeneratorTest {
         Job_Posting__c testJob = new Job_Posting__c(
             Title__c = 'Test Job',
             Company__c = 'Test Company',
-            Location__c = 'Remote'
+            Location__c = 'Remote',
+            Apply_URL__c = 'https://example.com/apply',
+            Provider__c = 'LinkedIn',
+            ExternalID__c = 'TEST-RESUME-005',
+            Status__c = 'Active'
         );
         insert testJob;
 
@@ -269,7 +288,11 @@ private class ResumeGeneratorTest {
         Job_Posting__c testJob = new Job_Posting__c(
             Title__c = 'Test Job',
             Company__c = 'Test Company',
-            Location__c = 'Remote'
+            Location__c = 'Remote',
+            Apply_URL__c = 'https://example.com/apply',
+            Provider__c = 'LinkedIn',
+            ExternalID__c = 'TEST-RESUME-006',
+            Status__c = 'Active'
         );
         insert testJob;
 
