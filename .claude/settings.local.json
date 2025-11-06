@@ -60,7 +60,9 @@
       "Bash(\"C:\\Program Files\\sf\\bin\\sf.cmd\" data query --query \"SELECT QualifiedApiName, Label FROM EntityDefinition WHERE QualifiedApiName LIKE ''%Meal%'' OR QualifiedApiName LIKE ''%Recipe%'' OR QualifiedApiName LIKE ''%Shopping%''\" --target-org abbyluggery179@agentforce.com --json)",
       "Bash(xcopy:*)",
       "Bash(robocopy:*)",
-      "Bash(del force-appmaindefaultclassesMealPlanAPI.cls force-appmaindefaultclassesMealPlanAPI.cls-meta.xml force-appmaindefaultclassesMealPlanAPITest.cls force-appmaindefaultclassesMealPlanAPITest.cls-meta.xml)"
+      "Bash(del force-appmaindefaultclassesMealPlanAPI.cls force-appmaindefaultclassesMealPlanAPI.cls-meta.xml force-appmaindefaultclassesMealPlanAPITest.cls force-appmaindefaultclassesMealPlanAPITest.cls-meta.xml)",
+      "Bash(unzip:*)",
+      "Bash(python parse_recipes_to_csv.py:*)"
     ],
     "deny": [],
     "ask": []

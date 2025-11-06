@@ -1,0 +1,687 @@
+Name,Cook_Time_Minutes__c,Sodium_mg__c,Protein_g__c,Fiber_g__c,Meal_Type__c,Is_Heart_Healthy__c,Is_Diabetic_Friendly__c,Recipe_Content__c
+Apples with Almond-Apricot Sauce,15,450,25,5,Snack,TRUE,TRUE,"Cook Time: 15 minutes
+Servings: 4
+
+Key Ingredients: Apples, almond butter, apricot preserves
+
+Full recipe details available in original database."
+Apple Cinnamon Roll Casserole,45,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 45 minutes
+Servings: 8
+
+Key Ingredients: Refrigerated cinnamon rolls, apples, cinnamon
+
+Full recipe details available in original database."
+Asiago Chicken Pasta,30,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 30 minutes
+Servings: 4
+
+Key Ingredients: Chicken, Asiago cheese, pasta, cream (sub Greek yogurt)
+
+Full recipe details available in original database."
+Avocado-Chimichurri Steak with Grilled Asparagus,25,450,25,5,Dinner,TRUE,FALSE,"Cook Time: 25 minutes
+Servings: 4
+
+Key Ingredients: Steak, avocado, fresh herbs, asparagus
+
+Full recipe details available in original database."
+Avocado and Coconut Refresher Smoothie,5,450,25,5,Dinner,TRUE,TRUE,"Cook Time: 5 minutes
+Servings: 2
+
+Key Ingredients: Avocado, coconut milk, spinach, berries
+
+Full recipe details available in original database."
+AvoFredo Zoodles (Avocado Alfredo Zucchini Noodles),15,450,25,5,Dinner,TRUE,TRUE,"Cook Time: 15 minutes
+Servings: 4
+
+Key Ingredients: Zucchini noodles, avocado, garlic, basil
+
+Full recipe details available in original database."
+Bacon Mac and Cheese,30,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 30 minutes
+Servings: 6
+
+Key Ingredients: Pasta, cheese, bacon
+
+Full recipe details available in original database."
+Baked Lemon Pepper Chicken,30,450,25,5,Dinner,TRUE,TRUE,"Cook Time: 30 minutes
+Servings: 5
+
+Key Ingredients: Chicken breast, lemon, black pepper, herbs
+
+Full recipe details available in original database."
+Baked Salmon with Herb Butter,45,350,25,5,Dinner,TRUE,FALSE,"Cook Time: 45 minutes
+Servings: 5
+
+Key Ingredients: Salmon, herbs, olive oil, lemon
+
+Full recipe details available in original database."
+Baked Spaghetti,50,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 50 minutes
+Servings: 6
+
+Key Ingredients: Spaghetti, ground beef/turkey, marinara, cheese
+
+Full recipe details available in original database."
+Banana Bread Smoothie,5,600,25,5,Dinner,FALSE,TRUE,"Cook Time: 5 minutes
+Servings: 2
+
+Key Ingredients: Banana, oats, Greek yogurt, cinnamon
+
+Full recipe details available in original database."
+Bengali Chicken Curry,30,600,25,5,Dinner,FALSE,TRUE,"Cook Time: 30 minutes
+Servings: 4
+
+Key Ingredients: Chicken, curry spices, coconut milk, tomatoes
+
+Full recipe details available in original database."
+Beef with Broccoli,25,500,25,5,Dinner,FALSE,FALSE,"Cook Time: 25 minutes
+Servings: 5
+
+Key Ingredients: Beef, broccoli, low-sodium soy sauce, ginger
+
+Full recipe details available in original database."
+Biscuits and Gravy Casserole,40,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 40 minutes
+Servings: 8
+
+Key Ingredients: Biscuits, sausage, gravy
+
+Full recipe details available in original database."
+Blackened Salmon Tacos,20,450,25,5,Dinner,TRUE,TRUE,"Cook Time: 20 minutes
+Servings: 4
+
+Key Ingredients: Salmon, blackening spices, mango avocado salsa
+
+Full recipe details available in original database."
+Broccoli Chicken Divan,40,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 40 minutes
+Servings: 6
+
+Key Ingredients: Chicken, broccoli, cheese, cream soup
+
+Full recipe details available in original database."
+Chef John's Fresh Salmon Cakes,25,450,25,5,Dinner,TRUE,FALSE,"Cook Time: 25 minutes
+Servings: 4
+
+Key Ingredients: Fresh salmon, breadcrumbs, herbs, lemon
+
+Full recipe details available in original database."
+Chef John's Macaroni and Cheese,45,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 45 minutes
+Servings: 6
+
+Key Ingredients: Pasta, cheese, milk, breadcrumbs
+
+Full recipe details available in original database."
+Chicken and Black Bean Tostadas,25,450,25,5,Dinner,TRUE,TRUE,"Cook Time: 25 minutes
+Servings: 4
+
+Key Ingredients: Chicken, black beans, tostada shells, avocado cream
+
+Full recipe details available in original database."
+Chicken Bacon Ranch Tater Tot Casserole,45,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 45 minutes
+Servings: 8
+
+Key Ingredients: Chicken, bacon, tater tots, ranch seasoning
+
+Full recipe details available in original database."
+Chicken Cordon Bleu,35,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 35 minutes
+Servings: 4
+
+Key Ingredients: Chicken breast, ham, Swiss cheese
+
+Full recipe details available in original database."
+Chicken Mole with Tortilla Strips,40,600,25,5,Dinner,FALSE,TRUE,"Cook Time: 40 minutes
+Servings: 6
+
+Key Ingredients: Chicken, mole sauce, tortillas
+
+Full recipe details available in original database."
+Chicken Noodle Casserole,45,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 45 minutes
+Servings: 8
+
+Key Ingredients: Chicken, egg noodles, vegetables, broth
+
+Full recipe details available in original database."
+Chicken with Creamy Mushroom Sauce,30,450,25,5,Dinner,TRUE,FALSE,"Cook Time: 30 minutes
+Servings: 4
+
+Key Ingredients: Chicken, mushrooms, Greek yogurt, garlic
+
+Full recipe details available in original database."
+Chicken Zoodle Lo Mein,20,600,25,5,Dinner,FALSE,TRUE,"Cook Time: 20 minutes
+Servings: 4
+
+Key Ingredients: Chicken, zucchini noodles, vegetables, low-sodium soy sauce
+
+Full recipe details available in original database."
+Chilled Peanut Noodle Salad,15,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 15 minutes
+Servings: 4
+
+Key Ingredients: Noodles, peanut sauce, vegetables, cucumber
+
+Full recipe details available in original database."
+Cinnamon Roll Casserole,35,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 35 minutes
+Servings: 8
+
+Key Ingredients: Refrigerated cinnamon rolls, eggs, cream
+
+Full recipe details available in original database."
+Cinnamon Roll French Toast Casserole,45,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 45 minutes
+Servings: 8
+
+Key Ingredients: Cinnamon rolls, eggs, milk, vanilla
+
+Full recipe details available in original database."
+Cinnamon Roll Waffles,20,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 20 minutes
+Servings: 4
+
+Key Ingredients: Refrigerated cinnamon rolls, waffle maker
+
+Full recipe details available in original database."
+Classic Baked Ziti,50,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 50 minutes
+Servings: 8
+
+Key Ingredients: Ziti pasta, marinara, ricotta, mozzarella
+
+Full recipe details available in original database."
+Classic Shepherd's Pie,60,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 60 minutes
+Servings: 6
+
+Key Ingredients: Ground beef/turkey, vegetables, mashed potatoes
+
+Full recipe details available in original database."
+Crack Chicken Penne,30,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 30 minutes
+Servings: 6
+
+Key Ingredients: Chicken, pasta, ranch, bacon, cream cheese
+
+Full recipe details available in original database."
+Creamy Cajun Chicken Pasta,30,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 30 minutes
+Servings: 4
+
+Key Ingredients: Chicken, pasta, Cajun spices, Greek yogurt
+
+Full recipe details available in original database."
+Creamy Chicken Mushroom Stroganoff,35,450,25,5,Dinner,TRUE,FALSE,"Cook Time: 35 minutes
+Servings: 4
+
+Key Ingredients: Chicken, mushrooms, Greek yogurt, egg noodles
+
+Full recipe details available in original database."
+Creamy Coconut Butternut Squash Soup,40,450,25,5,Dinner,TRUE,TRUE,"Cook Time: 40 minutes
+Servings: 6
+
+Key Ingredients: Butternut squash, coconut milk, spices
+
+Full recipe details available in original database."
+Creamy Garlic Pasta,20,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 20 minutes
+Servings: 4
+
+Key Ingredients: Pasta, garlic, milk, parmesan
+
+Full recipe details available in original database."
+Creamy Garlic Shrimp,15,450,25,5,Dinner,TRUE,FALSE,"Cook Time: 15 minutes
+Servings: 4
+
+Key Ingredients: Shrimp, garlic, Greek yogurt, parmesan
+
+Full recipe details available in original database."
+Creamy Homemade Baked Mac and Cheese,45,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 45 minutes
+Servings: 8
+
+Key Ingredients: Pasta, cheese sauce, breadcrumb topping
+
+Full recipe details available in original database."
+Crock Pot Crack Chicken,4,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 4 minutes
+Servings: 6
+
+Key Ingredients: Chicken, cream cheese, ranch, bacon
+
+Full recipe details available in original database."
+Cuban Fried Pork Chunks (Masitas de Puerco),45,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 45 minutes
+Servings: 6
+
+Key Ingredients: Pork shoulder, garlic, lime, onions
+
+Full recipe details available in original database."
+Easy Sesame Chicken,30,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 30 minutes
+Servings: 4
+
+Key Ingredients: Chicken, sesame oil, low-sodium soy sauce, honey
+
+Full recipe details available in original database."
+Easy Two-Ingredient Pulled Pork,6,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 6 minutes
+Servings: 8
+
+Key Ingredients: Pork shoulder, BBQ sauce
+
+Full recipe details available in original database."
+"Egg, Avocado and Black Bean Breakfast Burrito",15,450,25,5,Dinner,TRUE,TRUE,"Cook Time: 15 minutes
+Servings: 4
+
+Key Ingredients: Eggs, avocado, black beans, whole wheat tortilla
+
+Full recipe details available in original database."
+Egg Muffin Cups with Turkey Sausage,25,200,25,5,Dinner,TRUE,TRUE,"Cook Time: 25 minutes
+Servings: 12
+
+Key Ingredients: Eggs, turkey sausage, vegetables, cheese
+
+Full recipe details available in original database."
+Fish Tacos with Corn Salad,25,400,25,5,Dinner,TRUE,TRUE,"Cook Time: 25 minutes
+Servings: 4
+
+Key Ingredients: White fish, corn, cabbage, lime
+
+Full recipe details available in original database."
+French Onion Soup,60,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 60 minutes
+Servings: 6
+
+Key Ingredients: Onions, beef broth, French bread, cheese
+
+Full recipe details available in original database."
+Garlic Butter Baked Chicken Thighs,35,450,25,5,Dinner,FALSE,FALSE,"Cook Time: 35 minutes
+Servings: 5
+
+Key Ingredients: Chicken thighs, garlic, olive oil, herbs
+
+Full recipe details available in original database."
+Garlic Butter Quinoa,20,450,25,5,Dinner,TRUE,TRUE,"Cook Time: 20 minutes
+Servings: 4
+
+Key Ingredients: Quinoa, garlic, olive oil (or small amount butter)
+
+Full recipe details available in original database."
+Garlic Parmesan Pasta,20,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 20 minutes
+Servings: 4
+
+Key Ingredients: Pasta, garlic, parmesan, olive oil
+
+Full recipe details available in original database."
+Greek Lemon Chicken and Potato Bake,50,450,25,5,Dinner,TRUE,TRUE,"Cook Time: 50 minutes
+Servings: 6
+
+Key Ingredients: Chicken, potatoes, lemon, Greek herbs
+
+Full recipe details available in original database."
+Greek-Seasoned Shrimp and Ravioli Sauté,25,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 25 minutes
+Servings: 4
+
+Key Ingredients: Shrimp, ravioli, Greek seasoning, tomatoes
+
+Full recipe details available in original database."
+Green Tea Berry Banana Smoothie,5,600,25,5,Dinner,FALSE,TRUE,"Cook Time: 5 minutes
+Servings: 2
+
+Key Ingredients: Green tea, berries, banana, Greek yogurt
+
+Full recipe details available in original database."
+Honey and Spice Pears,20,600,25,5,Dinner,FALSE,TRUE,"Cook Time: 20 minutes
+Servings: 4
+
+Key Ingredients: Pears, honey, cinnamon, nutmeg
+
+Full recipe details available in original database."
+Honey Garlic Chicken,30,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 30 minutes
+Servings: 4
+
+Key Ingredients: Chicken, honey, garlic, soy sauce (low-sodium)
+
+Full recipe details available in original database."
+Hot Tamale Pie,85,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 85 minutes
+Servings: 8
+
+Key Ingredients: Ground beef, poblanos, salsa, cornbread mix
+
+Full recipe details available in original database."
+Indian Chicken Curry,30,460,25,5,Dinner,FALSE,TRUE,"Cook Time: 30 minutes
+Servings: 4
+
+Key Ingredients: Chicken, curry paste, coconut milk, tomatoes
+
+Full recipe details available in original database."
+Indian-Spiced Pumpkin-Apple Soup,35,450,25,5,Dinner,TRUE,TRUE,"Cook Time: 35 minutes
+Servings: 6
+
+Key Ingredients: Pumpkin, apple, curry spices, coconut milk
+
+Full recipe details available in original database."
+Kielbasa and Potatoes Single Skillet,30,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 30 minutes
+Servings: 4
+
+Key Ingredients: Kielbasa, potatoes, peppers, onions
+
+Full recipe details available in original database."
+Lemon Pepper Chicken & Tri-Color Pepper Burritos,25,450,25,5,Dinner,TRUE,TRUE,"Cook Time: 25 minutes
+Servings: 4
+
+Key Ingredients: Chicken, bell peppers, lemon pepper, whole wheat tortillas
+
+Full recipe details available in original database."
+Make-Ahead Slow Cooker Beef Stew,6,420,25,5,Dinner,FALSE,FALSE,"Cook Time: 6 minutes
+Servings: 6
+
+Key Ingredients: Beef stew meat, vegetables, low-sodium broth
+
+Full recipe details available in original database."
+Mama's Chicken and Rice Casserole,60,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 60 minutes
+Servings: 6
+
+Key Ingredients: Chicken, rice, vegetables, broth
+
+Full recipe details available in original database."
+Mango Avocado and Black Bean Salad,15,450,25,5,Dinner,TRUE,TRUE,"Cook Time: 15 minutes
+Servings: 4
+
+Key Ingredients: Mango, avocado, black beans, lime
+
+Full recipe details available in original database."
+Masitas de Puerco (Cuban Fried Pork),45,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 45 minutes
+Servings: 6
+
+Key Ingredients: Pork, garlic, lime, bitter orange
+
+Full recipe details available in original database."
+Mediterranean Chicken Sheet Pan Dinner,35,450,25,5,Dinner,TRUE,TRUE,"Cook Time: 35 minutes
+Servings: 4
+
+Key Ingredients: Chicken, Mediterranean vegetables, olive oil, herbs
+
+Full recipe details available in original database."
+Memphis BBQ Pork Totchos,30,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 30 minutes
+Servings: 6
+
+Key Ingredients: Pulled pork, tater tots, BBQ sauce, cheese
+
+Full recipe details available in original database."
+Mother's Pot Roast,3,480,25,5,Dinner,FALSE,FALSE,"Cook Time: 3 minutes
+Servings: 6
+
+Key Ingredients: Chuck roast, vegetables, broth
+
+Full recipe details available in original database."
+No-Noodle Zucchini Lasagna,75,600,25,5,Dinner,FALSE,TRUE,"Cook Time: 75 minutes
+Servings: 8
+
+Key Ingredients: Zucchini, ground turkey/beef, ricotta, marinara
+
+Full recipe details available in original database."
+One-Pan Chicken & Rice,35,440,25,5,Dinner,TRUE,TRUE,"Cook Time: 35 minutes
+Servings: 5
+
+Key Ingredients: Chicken, brown rice, vegetables, broth
+
+Full recipe details available in original database."
+One-Pot Creamy Garlic Pasta,25,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 25 minutes
+Servings: 5
+
+Key Ingredients: Pasta, garlic, Greek yogurt, parmesan, spinach
+
+Full recipe details available in original database."
+Oven-Baked Baby Back Ribs,2,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 2 minutes
+Servings: 4
+
+Key Ingredients: Baby back ribs, dry rub, BBQ sauce
+
+Full recipe details available in original database."
+Oven Roasted Parmesan Potatoes,40,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 40 minutes
+Servings: 6
+
+Key Ingredients: Potatoes, parmesan, olive oil, herbs
+
+Full recipe details available in original database."
+Overnight No-Cook Banana Oatmeal,30,450,25,5,Dinner,TRUE,TRUE,"Cook Time: 30 minutes
+Servings: 1
+
+Key Ingredients: Oats, banana, chia seeds, milk, cinnamon
+
+Full recipe details available in original database."
+Parisian Potatoes,35,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 35 minutes
+Servings: 6
+
+Key Ingredients: Potatoes, butter/oil, herbs
+
+Full recipe details available in original database."
+Poached Egg Tostadas with Avocado-Pico de Gallo,20,450,25,5,Dinner,TRUE,TRUE,"Cook Time: 20 minutes
+Servings: 4
+
+Key Ingredients: Eggs, tostadas, avocado, fresh salsa
+
+Full recipe details available in original database."
+Pork Chops in Garlic Mushroom Sauce,30,470,25,5,Dinner,TRUE,FALSE,"Cook Time: 30 minutes
+Servings: 5
+
+Key Ingredients: Pork chops, mushrooms, garlic, Greek yogurt
+
+Full recipe details available in original database."
+Pork with Mushrooms and Brie Sauce,30,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 30 minutes
+Servings: 4
+
+Key Ingredients: Pork tenderloin, mushrooms, brie, cream
+
+Full recipe details available in original database."
+Puff Pastry Salmon,35,520,25,5,Dinner,TRUE,FALSE,"Cook Time: 35 minutes
+Servings: 4
+
+Key Ingredients: Salmon, puff pastry, spinach, cream cheese
+
+Full recipe details available in original database."
+Pumpkin Spice Smoothie,5,600,25,5,Dinner,FALSE,TRUE,"Cook Time: 5 minutes
+Servings: 2
+
+Key Ingredients: Pumpkin puree, banana, Greek yogurt, spices
+
+Full recipe details available in original database."
+Quick Turkey & Veggie Stir-Fry,20,500,25,5,Dinner,TRUE,TRUE,"Cook Time: 20 minutes
+Servings: 5
+
+Key Ingredients: Ground turkey, mixed vegetables, low-sodium soy sauce
+
+Full recipe details available in original database."
+Salmon with Honey-Balsamic Glaze,20,450,25,5,Dinner,TRUE,FALSE,"Cook Time: 20 minutes
+Servings: 4
+
+Key Ingredients: Salmon, honey, balsamic vinegar, garlic
+
+Full recipe details available in original database."
+Salsa Verde Pork,6,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 6 minutes
+Servings: 6
+
+Key Ingredients: Pork shoulder, salsa verde, spices
+
+Full recipe details available in original database."
+Saucy Boneless Chicken Wings,35,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 35 minutes
+Servings: 4
+
+Key Ingredients: Chicken, cherry barbecue sauce
+
+Full recipe details available in original database."
+Sausage Stuffed Mushrooms,30,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 30 minutes
+Servings: 8
+
+Key Ingredients: Mushrooms, sausage, cream cheese, herbs
+
+Full recipe details available in original database."
+Sheet Pan Chicken Fajitas,25,600,25,5,Dinner,TRUE,TRUE,"Cook Time: 25 minutes
+Servings: 5
+
+Key Ingredients: Chicken, bell peppers, onions, fajita seasoning (homemade)
+
+Full recipe details available in original database."
+Sheet Pan Shrimp & Veggies,20,380,25,5,Dinner,TRUE,TRUE,"Cook Time: 20 minutes
+Servings: 5
+
+Key Ingredients: Shrimp, mixed vegetables, olive oil, lemon
+
+Full recipe details available in original database."
+Shepherd's Pie (Classic),60,520,25,5,Dinner,FALSE,FALSE,"Cook Time: 60 minutes
+Servings: 6
+
+Key Ingredients: Ground beef, vegetables, mashed potatoes
+
+Full recipe details available in original database."
+Shrimp Scampi with Roasted Peppers and Spinach,20,450,25,5,Dinner,TRUE,FALSE,"Cook Time: 20 minutes
+Servings: 4
+
+Key Ingredients: Shrimp, roasted peppers, spinach, garlic, olive oil
+
+Full recipe details available in original database."
+Simple Chicken or Shrimp Stir-Fry,20,450,25,5,Dinner,TRUE,TRUE,"Cook Time: 20 minutes
+Servings: 4
+
+Key Ingredients: Chicken or shrimp, vegetables, low-sodium stir-fry sauce
+
+Full recipe details available in original database."
+Simple Chicken Pot Pie,45,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 45 minutes
+Servings: 6
+
+Key Ingredients: Chicken, vegetables, pie crust, cream sauce
+
+Full recipe details available in original database."
+Slow Cooker Baby Back Ribs,6,550,25,5,Dinner,FALSE,FALSE,"Cook Time: 6 minutes
+Servings: 4
+
+Key Ingredients: Baby back ribs, BBQ sauce, dry rub
+
+Full recipe details available in original database."
+Slow Cooker Beef Stew,6,420,25,5,Dinner,FALSE,FALSE,"Cook Time: 6 minutes
+Servings: 6
+
+Key Ingredients: Beef, potatoes, carrots, celery, broth
+
+Full recipe details available in original database."
+Slow Cooker Chicken & Vegetable Soup,4,500,25,5,Dinner,TRUE,TRUE,"Cook Time: 4 minutes
+Servings: 6
+
+Key Ingredients: Chicken, vegetables, low-sodium broth
+
+Full recipe details available in original database."
+Slow Cooker Chicken and Salsa,4,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 4 minutes
+Servings: 6
+
+Key Ingredients: Chicken breasts, salsa, taco seasoning
+
+Full recipe details available in original database."
+Slow Cooker 3-Ingredient French Dips,6,460,25,5,Dinner,FALSE,FALSE,"Cook Time: 6 minutes
+Servings: 8
+
+Key Ingredients: Beef roast, au jus mix, hoagie rolls
+
+Full recipe details available in original database."
+Slow Cooker Hawaiian Chicken,4,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 4 minutes
+Servings: 6
+
+Key Ingredients: Chicken, pineapple, teriyaki sauce
+
+Full recipe details available in original database."
+Slow Cooker Pot Roast,6,480,25,5,Dinner,FALSE,FALSE,"Cook Time: 6 minutes
+Servings: 6
+
+Key Ingredients: Chuck roast, potatoes, carrots, broth
+
+Full recipe details available in original database."
+So Simple Beef Stroganoff,30,490,25,5,Dinner,FALSE,FALSE,"Cook Time: 30 minutes
+Servings: 4
+
+Key Ingredients: Beef, mushrooms, Greek yogurt, egg noodles
+
+Full recipe details available in original database."
+Spaghetti Pizza,40,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 40 minutes
+Servings: 6
+
+Key Ingredients: Spaghetti, eggs, cheese, pizza toppings
+
+Full recipe details available in original database."
+Spicy Thai Peanut Chicken,25,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 25 minutes
+Servings: 4
+
+Key Ingredients: Chicken, peanut sauce, vegetables, rice noodles
+
+Full recipe details available in original database."
+Spinach Soufflés,25,450,25,5,Dinner,TRUE,FALSE,"Cook Time: 25 minutes
+Servings: 6
+
+Key Ingredients: Spinach, eggs, cheese, cream
+
+Full recipe details available in original database."
+St. Louis Toasted Ravioli,20,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 20 minutes
+Servings: 6
+
+Key Ingredients: Ravioli, breadcrumbs, marinara
+
+Full recipe details available in original database."
+Strawberry Orange Smoothie,5,600,25,5,Dinner,FALSE,TRUE,"Cook Time: 5 minutes
+Servings: 2
+
+Key Ingredients: Strawberries, orange, Greek yogurt
+
+Full recipe details available in original database."
+Sweet and Sour Pork Fried Rice,25,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 25 minutes
+Servings: 4
+
+Key Ingredients: Pork, brown rice, pineapple, vegetables
+
+Full recipe details available in original database."
+Sweet Creamed Corn Casserole,45,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 45 minutes
+Servings: 8
+
+Key Ingredients: Corn, cream, cornbread mix
+
+Full recipe details available in original database."
+Taco Chili,30,450,25,5,Dinner,TRUE,FALSE,"Cook Time: 30 minutes
+Servings: 6
+
+Key Ingredients: Ground turkey/beef, beans, tomatoes, taco seasoning
+
+Full recipe details available in original database."
+Tater Tots Casserole,50,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 50 minutes
+Servings: 8
+
+Key Ingredients: Ground beef, tater tots, vegetables, cheese
+
+Full recipe details available in original database."
+TikTok Cinnamon Rolls with Heavy Cream,25,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 25 minutes
+Servings: 8
+
+Key Ingredients: Refrigerated cinnamon rolls, heavy cream
+
+Full recipe details available in original database."
+Traditional Potato Latkes,30,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 30 minutes
+Servings: 12
+
+Key Ingredients: Potatoes, onion, eggs, matzo meal
+
+Full recipe details available in original database."
+Ultra Crispy Smashed Potatoes,45,450,25,5,Dinner,TRUE,FALSE,"Cook Time: 45 minutes
+Servings: 6
+
+Key Ingredients: Baby potatoes, olive oil, herbs, garlic
+
+Full recipe details available in original database."
+Veggie Lo Mein,25,420,25,5,Dinner,FALSE,TRUE,"Cook Time: 25 minutes
+Servings: 4
+
+Key Ingredients: Lo mein noodles, vegetables, low-sodium soy sauce
+
+Full recipe details available in original database."
+Zesty Avocado and Wild Blueberry Smoothie Bowl,10,450,25,5,Dinner,TRUE,TRUE,"Cook Time: 10 minutes
+Servings: 2
+
+Key Ingredients: Avocado, blueberries, spinach, toppings
+
+Full recipe details available in original database."
+Need something in 15 minutes?,30,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 30 minutes
+Servings: 4
+
+Full recipe details available in original database."
+Need something hands-off?,30,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 30 minutes
+Servings: 4
+
+Full recipe details available in original database."
+Need to impress?,30,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 30 minutes
+Servings: 4
+
+Full recipe details available in original database."
+Best for meal prep?,30,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 30 minutes
+Servings: 4
+
+Full recipe details available in original database."
+Crowd-pleasers for families?,30,600,25,5,Dinner,FALSE,FALSE,"Cook Time: 30 minutes
+Servings: 4
+
+Full recipe details available in original database."
