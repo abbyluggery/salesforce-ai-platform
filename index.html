@@ -567,6 +567,14 @@
             gap: 0.5rem;
         }
 
+        .breathing-countdown {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--success);
+            min-width: 50px;
+            text-align: center;
+        }
+
         .breathing-counter {
             background: var(--accent);
             color: white;
@@ -577,6 +585,7 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
+            font-size: 0.9rem;
         }
 
         .breathing-controls {
@@ -1152,6 +1161,10 @@
                 <p class="card-subtitle">Log your thoughts, wins, and reflections</p>
                 <textarea class="win-input" id="journalEntry" placeholder="How's your day going? What are you grateful for? Any wins to celebrate?"></textarea>
 
+                <button class="button-primary" onclick="saveJournalEntry()" style="width: 100%; margin-top: 1rem;">
+                    Save Journal Entry
+                </button>
+
                 <!-- 3x Daily Mood Tracking -->
                 <h3 style="margin-top: 1.5rem; margin-bottom: 1rem; font-size: 1.1rem;">Track Mood & Energy (3x Daily)</h3>
                 <div class="mood-tracker">
@@ -1174,10 +1187,21 @@
                         <div class="mood-value">Not logged</div>
                     </div>
                 </div>
+            </div>
 
-                <button class="button-primary" onclick="saveJournalEntry()" style="width: 100%; margin-top: 1rem;">
-                    Save Journal Entry
+            <!-- Gratitude -->
+            <div class="card">
+                <h2 class="card-title">
+                    <span>💛</span>
+                    Gratitude Journal
+                </h2>
+                <input type="text" class="imposter-input" id="gratitudeInput"
+                       placeholder="What are you grateful for?"
+                       onkeypress="if(event.key==='Enter') addGratitude()">
+                <button class="button-primary" onclick="addGratitude()" style="width: 100%; margin-top: 0.5rem;">
+                    Add Gratitude
                 </button>
+                <div id="gratitudeList" style="margin-top: 1rem;"></div>
             </div>
 
             <!-- Win Entry with Parser -->
@@ -1233,21 +1257,6 @@ Or just write naturally - the parser will detect your wins!" oninput="parseWins(
                     Generate This Week's Summary
                 </button>
                 <div id="weeklyReviewContent" style="margin-top: 1rem;"></div>
-            </div>
-
-            <!-- Gratitude -->
-            <div class="card">
-                <h2 class="card-title">
-                    <span>💛</span>
-                    Gratitude Journal
-                </h2>
-                <input type="text" class="imposter-input" id="gratitudeInput"
-                       placeholder="What are you grateful for?"
-                       onkeypress="if(event.key==='Enter') addGratitude()">
-                <button class="button-primary" onclick="addGratitude()" style="width: 100%; margin-top: 0.5rem;">
-                    Add Gratitude
-                </button>
-                <div id="gratitudeList" style="margin-top: 1rem;"></div>
             </div>
         </div>
 
@@ -1406,32 +1415,36 @@ Or just write naturally - the parser will detect your wins!" oninput="parseWins(
                     <div class="breathing-step" id="breathe-in">
                         <div class="breathing-step-name">
                             <span>1️⃣</span>
-                            <span>Breathe In (4 seconds)</span>
+                            <span>Breathe In</span>
                         </div>
+                        <div class="breathing-countdown" id="countdown-breathe-in"></div>
                         <div class="breathing-counter" id="counter-breathe-in">0</div>
                     </div>
 
                     <div class="breathing-step" id="hold-in">
                         <div class="breathing-step-name">
                             <span>2️⃣</span>
-                            <span>Hold (4 seconds)</span>
+                            <span>Hold</span>
                         </div>
+                        <div class="breathing-countdown" id="countdown-hold-in"></div>
                         <div class="breathing-counter" id="counter-hold-in">0</div>
                     </div>
 
                     <div class="breathing-step" id="breathe-out">
                         <div class="breathing-step-name">
                             <span>3️⃣</span>
-                            <span>Breathe Out (4 seconds)</span>
+                            <span>Breathe Out</span>
                         </div>
+                        <div class="breathing-countdown" id="countdown-breathe-out"></div>
                         <div class="breathing-counter" id="counter-breathe-out">0</div>
                     </div>
 
                     <div class="breathing-step" id="hold-out">
                         <div class="breathing-step-name">
                             <span>4️⃣</span>
-                            <span>Hold (4 seconds)</span>
+                            <span>Hold</span>
                         </div>
+                        <div class="breathing-countdown" id="countdown-hold-out"></div>
                         <div class="breathing-counter" id="counter-hold-out">0</div>
                     </div>
                 </div>
@@ -1470,13 +1483,6 @@ Or just write naturally - the parser will detect your wins!" oninput="parseWins(
                         <label class="checklist-label">
                             Thought Record
                             <span class="technique-counter" id="counter-thought">0</span>
-                        </label>
-                    </div>
-                    <div class="checklist-item" onclick="toggleTherapyTechnique(this, 'bottraining')">
-                        <input type="checkbox" class="checklist-checkbox">
-                        <label class="checklist-label">
-                            Bot Training (AI Feedback)
-                            <span class="technique-counter" id="counter-bottraining">0</span>
                         </label>
                     </div>
                 </div>
@@ -2417,8 +2423,9 @@ Or just write naturally - the parser will detect your wins!" oninput="parseWins(
             }
         }
 
-        // Box Breathing with 4-Step Counter
+        // Box Breathing with 4-Step Counter and Countdown
         let breathingInterval = null;
+        let breathingCountdownInterval = null;
         let currentBreathStep = 0;
         const breathSteps = ['breathe-in', 'hold-in', 'breathe-out', 'hold-out'];
 
@@ -2431,16 +2438,38 @@ Or just write naturally - the parser will detect your wins!" oninput="parseWins(
             currentBreathStep = 0;
 
             function runCycle() {
-                breathSteps.forEach((step, index) => {
+                // Clear any existing countdown interval
+                if (breathingCountdownInterval) {
+                    clearInterval(breathingCountdownInterval);
+                }
+
+                // Remove active class from all steps
+                breathSteps.forEach((step) => {
                     document.getElementById(step).classList.remove('active');
+                    document.getElementById(`countdown-${step}`).textContent = '';
                 });
 
+                // Activate current step
                 const currentStep = breathSteps[currentBreathStep];
                 document.getElementById(currentStep).classList.add('active');
 
+                // Increment step counter
                 const counter = document.getElementById(`counter-${currentStep}`);
                 counter.textContent = parseInt(counter.textContent) + 1;
 
+                // Start countdown for this step (4 seconds)
+                let countdown = 4;
+                const countdownDisplay = document.getElementById(`countdown-${currentStep}`);
+                countdownDisplay.textContent = countdown;
+
+                breathingCountdownInterval = setInterval(() => {
+                    countdown--;
+                    if (countdown >= 0) {
+                        countdownDisplay.textContent = countdown;
+                    }
+                }, 1000);
+
+                // Move to next step
                 currentBreathStep++;
 
                 if (currentBreathStep >= breathSteps.length) {
@@ -2464,8 +2493,14 @@ Or just write naturally - the parser will detect your wins!" oninput="parseWins(
                 breathingInterval = null;
             }
 
+            if (breathingCountdownInterval) {
+                clearInterval(breathingCountdownInterval);
+                breathingCountdownInterval = null;
+            }
+
             breathSteps.forEach(step => {
                 document.getElementById(step).classList.remove('active');
+                document.getElementById(`countdown-${step}`).textContent = '';
             });
 
             document.getElementById('breathingStartBtn').style.display = 'inline-block';
@@ -2480,6 +2515,7 @@ Or just write naturally - the parser will detect your wins!" oninput="parseWins(
             'fraud',
             "don't deserve",
             'imposter',
+            'fake',
             'fake it',
             'everyone else',
             'just lucky',
@@ -2492,7 +2528,10 @@ Or just write naturally - the parser will detect your wins!" oninput="parseWins(
             'incompetent',
             'never succeed',
             'not capable',
-            'too difficult'
+            'too difficult',
+            "i'm a fake",
+            'feel like a fake',
+            'feel like an imposter'
         ];
 
         function detectNegativeThought() {
@@ -2519,10 +2558,12 @@ Or just write naturally - the parser will detect your wins!" oninput="parseWins(
                 facts.push('Skill Validation: You earned 96 Trailhead badges + 2 superbadges through demonstrated competency');
             }
 
-            if (lower.includes("don't deserve") || lower.includes('fraud')) {
+            if (lower.includes("don't deserve") || lower.includes('fraud') || lower.includes('fake') || lower.includes('imposter')) {
                 facts.push('Reality Check: You have 13 months of hands-on Actimize experience with measurable results');
                 facts.push('Unique Value: Your neurodivergent perspective provides innovative problem-solving approaches');
                 facts.push('Dual Expertise: You possess rare combined expertise in both Salesforce and compliance systems');
+                facts.push('Using AI Tools: Using AI is a skill, not cheating - it shows you can leverage modern tools effectively');
+                facts.push('Industry Reality: Top developers and professionals use AI tools daily - it\'s smart, not fake');
             }
 
             if (lower.includes('failure') || lower.includes("can't do") || lower.includes('never succeed')) {
