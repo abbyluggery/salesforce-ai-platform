@@ -1,0 +1,27 @@
+<apex:page controller="ResumePDFController" renderAs="pdf" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" showHeader="false" sidebar="false">
+<html>
+<head>
+    <style>
+        @page {
+            margin: 0.75in;
+            @top-center {
+                content: element(header);
+            }
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11pt;
+            line-height: 1.4;
+        }
+        .content {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <apex:outputText value="{!resumeContent}" escape="false"/>
+    </div>
+</body>
+</html>
+</apex:page>

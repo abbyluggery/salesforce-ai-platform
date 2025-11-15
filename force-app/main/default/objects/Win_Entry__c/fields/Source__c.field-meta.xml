@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source__c</fullName>
+    <label>Source</label>
+    <description>Where the win was logged from (PWA, Salesforce, Mobile)</description>
+    <type>Text</type>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+</CustomField>

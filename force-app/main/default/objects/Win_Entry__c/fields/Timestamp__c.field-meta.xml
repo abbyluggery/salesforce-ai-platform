@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Timestamp__c</fullName>
+    <label>Timestamp</label>
+    <description>Exact time when win was logged (for sync conflict resolution)</description>
+    <type>DateTime</type>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+</CustomField>

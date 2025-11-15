@@ -1,0 +1,14 @@
+Dear {!Opportunity.Contact.FirstName},
+
+I hope this message finds you well. I am writing to express my strong interest in the {!Opportunity.Name} position.
+
+With my background in Salesforce and proven track record of success, I believe I would be an excellent fit for this role. I have attached my resume and cover letter for your review.
+
+I would welcome the opportunity to discuss how my experience and skills align with your team's needs. Please let me know if you need any additional information.
+
+I look forward to hearing from you.
+
+Best regards,
+Abby Luggery
+{!User.Email}
+{!User.Phone}

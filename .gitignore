@@ -1,0 +1,59 @@
+# This file is used for Git repositories to specify intentionally untracked files that Git should ignore. 
+# If you are not using git, you can delete this file. For more information see: https://git-scm.com/docs/gitignore
+# For useful gitignore templates see: https://github.com/github/gitignore
+
+# Salesforce cache
+.sf/
+.sfdx/
+.localdevserver/
+deploy-options.json
+
+# LWC VSCode autocomplete
+**/lwc/jsconfig.json
+
+# LWC Jest coverage reports
+coverage/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+
+# ApexPMD cache
+.pmdCache
+
+# Eslint cache
+.eslintcache
+
+# MacOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Local environment variables
+.env
+
+# Python Salesforce Functions
+**/__pycache__/
+**/.venv/
+**/venv/
+
+# Sensitive credentials - DO NOT COMMIT
+**/namedCredentials/*.namedCredential-meta.xml
+**/externalCredentials/*.externalCredential-meta.xml
+
+# Documentation files with exposed API keys
+DEPLOYMENT_STATUS_AND_NEXT_STEPS.md
+FINAL_FIX_NAMED_CREDENTIAL.md
+FINAL_WORKING_TEST.md
+VERIFY_API_KEY.md
+WORKING_TEST.md

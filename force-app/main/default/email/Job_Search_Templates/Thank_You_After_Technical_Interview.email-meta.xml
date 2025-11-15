@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Thank you email after technical/in-depth interview</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Thank You After Technical Interview</name>
+    <style>none</style>
+    <subject>Thank You - {!Opportunity.Name} Interview</subject>
+    <textOnly>Dear {!Opportunity.Contact.FirstName},
+
+Thank you so much for the opportunity to interview for the {!Opportunity.Name} position at {!Opportunity.Account.Name}.
+
+I thoroughly enjoyed our in-depth discussion about the role and the technical challenges your team is addressing. The conversation further strengthened my interest in joining your organization and contributing to your goals.
+
+I'm particularly excited about [specific aspect discussed in interview], and I'm confident that my experience and skills would enable me to make meaningful contributions from day one.
+
+Please let me know if there's any additional information I can provide as you move forward with your decision-making process.
+
+I look forward to hearing about next steps.
+
+Best regards,
+Abby Luggery
+{!User.Email}
+{!User.Phone}</textOnly>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

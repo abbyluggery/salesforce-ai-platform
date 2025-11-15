@@ -1,0 +1,14 @@
+Dear {!Opportunity.Contact.FirstName},
+
+I wanted to express my sincere gratitude for the opportunity to complete the final interview for the {!Opportunity.Name} position at {!Opportunity.Account.Name}.
+
+Meeting with the team and learning more about the company culture, vision, and objectives has only strengthened my enthusiasm for this opportunity. I am genuinely excited about the prospect of joining your organization and contributing to your continued success.
+
+I believe my skills, experience, and passion for Salesforce make me an excellent fit for this role, and I'm eager to bring my expertise to your team.
+
+Thank you again for your time, consideration, and the thorough interview process. I look forward to hearing your decision.
+
+Best regards,
+Abby Luggery
+{!User.Email}
+{!User.Phone}

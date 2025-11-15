@@ -1,0 +1,14 @@
+Dear {!Opportunity.Contact.FirstName},
+
+I hope this email finds you well. I wanted to follow up on my application for the {!Opportunity.Name} position that I submitted on {!Opportunity.Application_Prepared_Date__c}.
+
+I remain very interested in this opportunity and would welcome the chance to discuss how my Salesforce experience and skills could contribute to your team's success.
+
+If you need any additional information or would like to schedule a conversation, please don't hesitate to reach out.
+
+Thank you for your time and consideration.
+
+Best regards,
+Abby Luggery
+{!User.Email}
+{!User.Phone}
