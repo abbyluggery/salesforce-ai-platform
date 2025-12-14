@@ -1,0 +1,44 @@
+# Recipe Database Aggregator - Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core Data Processing
+pandas>=1.5.0
+numpy>=1.23.0
+
+# API Requests
+requests>=2.28.0
+urllib3>=1.26.0
+
+# Salesforce Integration
+simple-salesforce>=1.12.0
+
+# Automation & Scheduling
+schedule>=1.1.0
+
+# Environment Management
+python-dotenv>=0.21.0
+
+# Web Scraping (optional)
+beautifulsoup4>=4.11.0
+
+# Progress Bars
+tqdm>=4.64.0
+
+# Data Analysis (for Jupyter notebooks)
+matplotlib>=3.6.0
+seaborn>=0.12.0
+scikit-learn>=1.2.0
+scipy>=1.9.0
+
+# Jupyter Support (optional)
+jupyter>=1.0.0
+ipykernel>=6.16.0
+
+# Testing
+pytest>=7.2.0
+pytest-cov>=4.0.0
+
+# Code Quality
+black>=22.10.0
+flake8>=5.0.0
+pylint>=2.15.0
