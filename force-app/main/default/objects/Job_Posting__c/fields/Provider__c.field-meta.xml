@@ -12,6 +12,16 @@
         <valueSetDefinition>
             <sorted>true</sorted>
             <value>
+                <fullName>Adzuna</fullName>
+                <default>false</default>
+                <label>Adzuna</label>
+            </value>
+            <value>
+                <fullName>Arbeitnow</fullName>
+                <default>false</default>
+                <label>Arbeitnow</label>
+            </value>
+            <value>
                 <fullName>Dice</fullName>
                 <default>false</default>
                 <label>Dice</label>
@@ -32,9 +42,24 @@
                 <label>Greenhouse</label>
             </value>
             <value>
+                <fullName>Himalayas</fullName>
+                <default>false</default>
+                <label>Himalayas</label>
+            </value>
+            <value>
                 <fullName>Indeed</fullName>
                 <default>false</default>
                 <label>Indeed</label>
+            </value>
+            <value>
+                <fullName>Jobicy</fullName>
+                <default>false</default>
+                <label>Jobicy</label>
+            </value>
+            <value>
+                <fullName>Jooble</fullName>
+                <default>false</default>
+                <label>Jooble</label>
             </value>
             <value>
                 <fullName>Ladders</fullName>
@@ -50,6 +75,11 @@
                 <fullName>LinkedIn</fullName>
                 <default>false</default>
                 <label>LinkedIn</label>
+            </value>
+            <value>
+                <fullName>RemoteOK</fullName>
+                <default>false</default>
+                <label>RemoteOK</label>
             </value>
         </valueSetDefinition>
     </valueSet>
