@@ -1,6 +1,8 @@
 # Enterprise Salesforce Platform with AI Integration
 
-A comprehensive Salesforce application featuring AI-powered job search automation, resume generation, interview preparation, wellness tracking, and meal planning - demonstrating enterprise-grade architecture across 84 Apex classes and 28 custom objects.
+A comprehensive Salesforce application featuring AI-powered job search automation, resume generation, interview preparation, wellness tracking, and meal planning - demonstrating enterprise-grade architecture across **143 Apex classes** and **42 custom objects**.
+
+> **Last Updated:** December 27, 2025
 
 ---
 
@@ -53,8 +55,8 @@ This platform combines multiple integrated systems built on Salesforce Lightning
 │                            ▼                                           │
 │                   ┌─────────────────┐                                  │
 │                   │  Custom Objects │                                  │
-│                   │   (28 objects)  │                                  │
-│                   │   100+ fields   │                                  │
+│                   │   (42 objects)  │                                  │
+│                   │   200+ fields   │                                  │
 │                   └─────────────────┘                                  │
 │                                                                        │
 └────────────────────────────────────────────────────────────────────────┘
@@ -148,11 +150,14 @@ This platform combines multiple integrated systems built on Salesforce Lightning
 
 | Metric | Count |
 |--------|-------|
-| Apex Classes | 84 |
-| Custom Objects | 28 |
-| Custom Fields | 100+ |
-| Lightning Web Components | 6 |
-| Flows | 17 |
+| Apex Classes | 143 |
+| Custom Objects | 42 |
+| Big Objects | 3 |
+| Custom Fields | 200+ |
+| Lightning Web Components | 11 |
+| Flows | 22 |
+| Triggers | 9 |
+| Job API Adapters | 8 |
 | Test Classes | 40+ |
 | Code Coverage | 75%+ |
 
@@ -186,6 +191,21 @@ This platform combines multiple integrated systems built on Salesforce Lightning
 - `JobPostingAPI.cls` - REST endpoint for Chrome extension
 - `DailyRoutineAPI.cls` - PWA sync endpoint
 
+**Job Search API Adapters:**
+- `ArbeitnowAPIAdapter.cls` - Remote/EU jobs
+- `RemoteOKAPIAdapter.cls` - Remote-first positions
+- `JobicyAPIAdapter.cls` - Remote job aggregator
+- `AdzunaAPIAdapter.cls` - 11-country job search
+- `HimalayasAPIAdapter.cls` - Remote company database
+- `JoobleAPIAdapter.cls` - Aggregated listings
+- `TheirStackAPIAdapter.cls` - Tech company jobs
+- `JobSearchService.cls` - Unified multi-API orchestrator
+
+**Data Retention & Archival:**
+- `MealIngredientArchiveService.cls` - Big Object archival
+- `DataRetentionService.cls` - Automated cleanup
+- `JobArchiveService.cls` - Job posting archival
+
 ### Lightning Web Components
 
 - `holisticDashboard` - Unified view across all modules
@@ -194,6 +214,11 @@ This platform combines multiple integrated systems built on Salesforce Lightning
 - `shoppingListManager` - Multi-store list management
 - `wellnessTracker` - Daily check-in interface
 - `energySchedulerUI` - Energy pattern visualization
+- `jobSearchRunButton` - Manual job search trigger
+- `resumeViewer` - Mobile-optimized resume display
+- `jobPostingResearch` - Company research integration
+- `dailyRoutineCard` - Quick routine check-in
+- `mealNutritionChart` - Nutritional visualization
 
 ---
 
@@ -246,12 +271,14 @@ POST /services/apexrest/routine/daily
 
 **For technical reviewers**, this project shows:
 
-1. **Enterprise Architecture** - 28-object data model with proper relationships, triggers, and automation
+1. **Enterprise Architecture** - 42-object data model with Big Objects for archival, proper relationships, triggers, and automation
 2. **AI Integration** - Production-ready Claude API integration with error handling and hallucination prevention
-3. **Apex Expertise** - 84 classes covering REST APIs, Queueable, Batch, Scheduled, Invocable patterns
-4. **Full-Stack Salesforce** - LWC components, Visualforce PDF, Flow Builder, Reports/Dashboards
-5. **Algorithm Design** - NLP parsing, fuzzy matching, scoring algorithms
-6. **Test Coverage** - 75%+ coverage with positive, negative, and bulk testing
+3. **Apex Expertise** - 143 classes covering REST APIs, Queueable, Batch, Scheduled, Invocable patterns
+4. **Multi-API Integration** - 8 job search API adapters with unified orchestration
+5. **Full-Stack Salesforce** - 11 LWC components, Visualforce PDF, Flow Builder, Reports/Dashboards
+6. **Algorithm Design** - NLP parsing, fuzzy matching, scoring algorithms
+7. **Data Management** - Big Object archival for storage optimization
+8. **Test Coverage** - 75%+ coverage with positive, negative, and bulk testing
 
 ---
 
