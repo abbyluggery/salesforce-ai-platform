@@ -1,8 +1,8 @@
 # Enterprise Salesforce Platform with AI Integration
 
-A comprehensive Salesforce application featuring AI-powered job search automation, resume generation, interview preparation, wellness tracking, and meal planning - demonstrating enterprise-grade architecture across **143 Apex classes** and **42 custom objects**.
+A comprehensive Salesforce application featuring AI-powered job search automation, resume generation, interview preparation, wellness tracking, and meal planning - demonstrating enterprise-grade architecture across **90 Apex classes** and **28 custom objects**.
 
-> **Last Updated:** December 27, 2025
+> **Last Updated:** December 29, 2025
 
 ---
 
@@ -25,61 +25,156 @@ This platform combines multiple integrated systems built on Salesforce Lightning
 ### System Design
 
 ```
-┌────────────────────────────────────────────────────────────────────────┐
-│                         SALESFORCE PLATFORM                            │
-├────────────────────────────────────────────────────────────────────────┤
-│                                                                        │
-│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐             │
-│  │   Chrome     │    │   PWA        │    │   Mobile     │             │
-│  │  Extension   │───►│   Client     │───►│    App       │             │
-│  └──────┬───────┘    └──────┬───────┘    └──────┬───────┘             │
-│         │                   │                   │                      │
-│         └───────────────────┼───────────────────┘                      │
-│                             ▼                                          │
-│                   ┌─────────────────┐                                  │
-│                   │   REST APIs     │                                  │
-│                   │  JobPostingAPI  │                                  │
-│                   │  DailyRoutineAPI│                                  │
-│                   │  MealPlanAPI    │                                  │
-│                   └────────┬────────┘                                  │
-│                            │                                           │
-│         ┌──────────────────┼──────────────────┐                        │
-│         ▼                  ▼                  ▼                        │
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐                │
-│  │   Claude    │    │   Business  │    │   Batch &   │                │
-│  │  API Layer  │    │    Logic    │    │  Scheduled  │                │
-│  │             │    │             │    │    Jobs     │                │
-│  └─────────────┘    └─────────────┘    └─────────────┘                │
-│         │                  │                  │                        │
-│         └──────────────────┼──────────────────┘                        │
-│                            ▼                                           │
-│                   ┌─────────────────┐                                  │
-│                   │  Custom Objects │                                  │
-│                   │   (42 objects)  │                                  │
-│                   │   200+ fields   │                                  │
-│                   └─────────────────┘                                  │
-│                                                                        │
-└────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           SALESFORCE PLATFORM                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   EXTERNAL CLIENTS (Parallel Access)                                        │
+│   ┌──────────────┐   ┌──────────────┐   ┌──────────────┐                   │
+│   │   Chrome     │   │     PWA      │   │   Mobile     │                   │
+│   │  Extension   │   │   Client     │   │    App       │                   │
+│   └──────┬───────┘   └──────┬───────┘   └──────┬───────┘                   │
+│          │                  │                  │                            │
+│          └──────────────────┼──────────────────┘                            │
+│                             ▼                                               │
+│   ┌─────────────────────────────────────────────────────────────────────┐  │
+│   │                        REST API LAYER                                │  │
+│   │   JobPostingAPI  │  DailyRoutineAPI  │  MealPlanTodayAPI            │  │
+│   └─────────────────────────────────────────────────────────────────────┘  │
+│                             │                                               │
+│   ┌─────────────────────────┼─────────────────────────────────────────┐    │
+│   │                         ▼                                          │    │
+│   │   ┌─────────────┐  ┌─────────────┐  ┌─────────────┐               │    │
+│   │   │  Claude AI  │  │  Business   │  │   Async     │               │    │
+│   │   │   Service   │  │   Logic     │  │ Processing  │               │    │
+│   │   │             │  │  Services   │  │ (Queueable) │               │    │
+│   │   └──────┬──────┘  └──────┬──────┘  └──────┬──────┘               │    │
+│   │          │                │                │                       │    │
+│   │          └────────────────┼────────────────┘                       │    │
+│   │                           ▼                                        │    │
+│   │   ┌─────────────────────────────────────────────────────────────┐ │    │
+│   │   │                    TRIGGER LAYER                             │ │    │
+│   │   │  OpportunityTrigger  │  JobPostingTrigger  │  MealTrigger   │ │    │
+│   │   └─────────────────────────────────────────────────────────────┘ │    │
+│   │                           │                                        │    │
+│   │                           ▼                                        │    │
+│   │   ┌─────────────────────────────────────────────────────────────┐ │    │
+│   │   │                   DATA LAYER                                 │ │    │
+│   │   │  28 Custom Objects  │  200+ Fields  │  Custom Metadata      │ │    │
+│   │   └─────────────────────────────────────────────────────────────┘ │    │
+│   │                      SERVICE LAYER                                 │    │
+│   └────────────────────────────────────────────────────────────────────┘    │
+│                                                                             │
+│   ┌─────────────────────────────────────────────────────────────────────┐  │
+│   │                    SCHEDULED AUTOMATION                              │  │
+│   │  Batch Jobs  │  Scheduled Apex  │  Flow Automation (18 Flows)       │  │
+│   └─────────────────────────────────────────────────────────────────────┘  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Data Model
+### Data Model (Entity Relationship)
 
-**Job Search Domain:**
-- `Job_Posting__c` - Job listings with AI analysis scores, red flags, requirements extraction
-- `Resume_Package__c` - Generated resumes with job-specific customization
-- `Master_Resume__c` / `Master_Resume_Config__c` - Template management
-- `Company_Research__c` - AI-generated company intelligence
-- `Interview_Prep_Session__c` / `Interview_Response__c` - Practice sessions with feedback
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           JOB SEARCH DOMAIN                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   Master_Resume__c ──────────┐                                              │
+│         │                    │                                              │
+│         ▼                    ▼                                              │
+│   Master_Resume_Config__c    Job_Posting__c ◄───── Company_Research__c     │
+│                                   │                                         │
+│                                   ▼                                         │
+│                           Resume_Package__c                                 │
+│                                   │                                         │
+│                                   ▼                                         │
+│                             Opportunity (Standard)                          │
+│                                   │                                         │
+│                    ┌──────────────┴──────────────┐                          │
+│                    ▼                             ▼                          │
+│         Interview_Prep_Session__c      Interview_Response__c               │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
 
-**Wellness Domain:**
-- `Daily_Routine__c` - Energy, mood, routine completion tracking
-- Standard `Opportunity` - Application pipeline with custom stages
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          MEAL PLANNING DOMAIN                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   Meal__c ◄──────────────── Meal_Ingredient__c                             │
+│      │                                                                      │
+│      ▼                                                                      │
+│   Planned_Meal__c ──────────► Weekly_Meal_Plan__c                          │
+│      │                              │                                       │
+│      └──────────────┬───────────────┘                                       │
+│                     ▼                                                       │
+│              Shopping_List__c                                               │
+│                     │                                                       │
+│                     ▼                                                       │
+│           Shopping_List_Item__c ◄──────── Store_Coupon__c                  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
 
-**Meal Planning Domain:**
-- `Weekly_Meal_Plan__c` / `Planned_Meal__c` - Meal scheduling
-- `Meal__c` / `Meal_Ingredient__c` - Recipe database with nutrition
-- `Shopping_List__c` / `Shopping_List_Item__c` - Automated list generation
-- `Store_Coupon__c` - Coupon matching for savings optimization
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          WELLNESS DOMAIN                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   Contact (Standard) ──────────► Daily_Routine__c                          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Job Search Domain (10 Objects):**
+| Object | Purpose |
+|--------|---------|
+| `Job_Posting__c` | Job listings with AI analysis scores, red flags, requirements |
+| `Resume_Package__c` | Tailored resumes with job-specific customization |
+| `Master_Resume__c` | Master resume template data |
+| `Master_Resume_Config__c` | Search preferences and criteria |
+| `Company_Research__c` | AI-generated company intelligence |
+| `Interview_Prep_Session__c` | Interview practice sessions |
+| `Interview_Response__c` | STAR-method interview answers with AI feedback |
+| `Opportunity` | Application pipeline with custom stages |
+| `Contact` | User profile and preferences |
+| `Knowledge__kav` | Knowledge articles for interview prep |
+
+**Meal Planning Domain (8 Objects):**
+| Object | Purpose |
+|--------|---------|
+| `Meal__c` | Recipe database with instructions and nutrition |
+| `Meal_Ingredient__c` | Parsed ingredients with quantities and units |
+| `Weekly_Meal_Plan__c` | 7-14 day meal schedules |
+| `Planned_Meal__c` | Individual meal slots (breakfast, lunch, dinner) |
+| `Shopping_List__c` | Aggregated grocery lists by store |
+| `Shopping_List_Item__c` | Line items with quantities and coupon matches |
+| `Store_Coupon__c` | Coupon data for savings optimization |
+| `Walgreens_API_Settings__c` | API configuration for coupon sync |
+
+**Wellness Domain (1 Object):**
+| Object | Purpose |
+|--------|---------|
+| `Daily_Routine__c` | Energy levels, mood, routine completion tracking |
+
+**Journal Business Domain (4 Objects):**
+| Object | Purpose |
+|--------|---------|
+| `Journal_Customer__c` | E-commerce customer records |
+| `Journal_Product__c` | Product catalog |
+| `Journal_Sale__c` | Sales transactions |
+| `Marketing_Content__c` | Marketing materials and campaigns |
+
+**Email Automation (2 Objects):**
+| Object | Purpose |
+|--------|---------|
+| `Email_Journey__c` | Automated email sequences |
+| `Email_Send__c` | Individual email send tracking |
+
+**Custom Metadata (3 Types):**
+| Metadata Type | Purpose |
+|---------------|---------|
+| `API_Configuration__mdt` | External API settings |
+| `Lulu_API_Settings__mdt` | Print-on-demand API config |
+| `Pinterest_API_Settings__mdt` | Pinterest integration config |
 
 ---
 
@@ -138,7 +233,7 @@ This platform combines multiple integrated systems built on Salesforce Lightning
 
 **Approach:**
 - **Triggers:** `OpportunityCreationTrigger` - Auto-creates records on status change
-- **Flows:** 17 automation flows for reminders, summaries, check-ins
+- **Flows:** 18 automation flows for reminders, summaries, check-ins
 - **Scheduled:** `WalgreensOfferSyncScheduler`, `EnergyAdaptiveScheduler`
 - **Queueable:** Async AI analysis, batch PDF generation
 
@@ -150,15 +245,14 @@ This platform combines multiple integrated systems built on Salesforce Lightning
 
 | Metric | Count |
 |--------|-------|
-| Apex Classes | 143 |
-| Custom Objects | 42 |
-| Big Objects | 3 |
+| Apex Classes | 90 |
+| Custom Objects | 28 |
+| Custom Metadata Types | 3 |
 | Custom Fields | 200+ |
-| Lightning Web Components | 11 |
-| Flows | 22 |
-| Triggers | 9 |
-| Job API Adapters | 8 |
-| Test Classes | 40+ |
+| Lightning Web Components | 6 |
+| Flows | 18 |
+| Triggers | 6 |
+| Test Classes | 30+ |
 | Code Coverage | 75%+ |
 
 ### Key Apex Classes
@@ -191,34 +285,16 @@ This platform combines multiple integrated systems built on Salesforce Lightning
 - `JobPostingAPI.cls` - REST endpoint for Chrome extension
 - `DailyRoutineAPI.cls` - PWA sync endpoint
 
-**Job Search API Adapters:**
-- `ArbeitnowAPIAdapter.cls` - Remote/EU jobs
-- `RemoteOKAPIAdapter.cls` - Remote-first positions
-- `JobicyAPIAdapter.cls` - Remote job aggregator
-- `AdzunaAPIAdapter.cls` - 11-country job search
-- `HimalayasAPIAdapter.cls` - Remote company database
-- `JoobleAPIAdapter.cls` - Aggregated listings
-- `TheirStackAPIAdapter.cls` - Tech company jobs
-- `JobSearchService.cls` - Unified multi-API orchestrator
-
-**Data Retention & Archival:**
-- `MealIngredientArchiveService.cls` - Big Object archival
-- `DataRetentionService.cls` - Automated cleanup
-- `JobArchiveService.cls` - Job posting archival
-
 ### Lightning Web Components
 
-- `holisticDashboard` - Unified view across all modules
-- `interviewPrepAgent` - AI coaching interface
-- `mealPlanCalendar` - Interactive meal scheduling
-- `shoppingListManager` - Multi-store list management
-- `wellnessTracker` - Daily check-in interface
-- `energySchedulerUI` - Energy pattern visualization
-- `jobSearchRunButton` - Manual job search trigger
-- `resumeViewer` - Mobile-optimized resume display
-- `jobPostingResearch` - Company research integration
-- `dailyRoutineCard` - Quick routine check-in
-- `mealNutritionChart` - Nutritional visualization
+| Component | Purpose |
+|-----------|---------|
+| `holisticDashboard` | Unified view across all wellness modules |
+| `interviewPrepAgent` | AI coaching interface with STAR method guidance |
+| `mealPlanCalendar` | Interactive drag-and-drop meal scheduling |
+| `shoppingListManager` | Multi-store list management with coupon integration |
+| `wellnessTracker` | Daily energy and mood check-in interface |
+| `energySchedulerUI` | Energy pattern visualization and recommendations |
 
 ---
 
@@ -271,14 +347,12 @@ POST /services/apexrest/routine/daily
 
 **For technical reviewers**, this project shows:
 
-1. **Enterprise Architecture** - 42-object data model with Big Objects for archival, proper relationships, triggers, and automation
+1. **Enterprise Architecture** - 28-object data model with proper relationships, triggers, and automation
 2. **AI Integration** - Production-ready Claude API integration with error handling and hallucination prevention
-3. **Apex Expertise** - 143 classes covering REST APIs, Queueable, Batch, Scheduled, Invocable patterns
-4. **Multi-API Integration** - 8 job search API adapters with unified orchestration
-5. **Full-Stack Salesforce** - 11 LWC components, Visualforce PDF, Flow Builder, Reports/Dashboards
-6. **Algorithm Design** - NLP parsing, fuzzy matching, scoring algorithms
-7. **Data Management** - Big Object archival for storage optimization
-8. **Test Coverage** - 75%+ coverage with positive, negative, and bulk testing
+3. **Apex Expertise** - 90 classes covering REST APIs, Queueable, Batch, Scheduled, Invocable patterns
+4. **Full-Stack Salesforce** - 6 LWC components, Visualforce PDF, Flow Builder, Reports/Dashboards
+5. **Algorithm Design** - NLP parsing, fuzzy matching, scoring algorithms
+6. **Test Coverage** - 75%+ coverage with positive, negative, and bulk testing
 
 ---
 
@@ -304,7 +378,7 @@ This system was architected using AI-assisted development workflows. I designed 
 ### Quick Start
 ```bash
 # Clone repository
-git clone https://github.com/abbyluggery/Full-ND-app-build.git
+git clone https://github.com/abbyluggery/salesforce-ai-platform.git
 
 # Deploy to Salesforce
 sf project deploy start --source-dir force-app --target-org YOUR_ORG
