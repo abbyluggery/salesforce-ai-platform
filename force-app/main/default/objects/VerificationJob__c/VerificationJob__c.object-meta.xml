@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Represents an executed verification/check with a specific provider (IDV, Sanctions, Doc, KYB).</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+
+    <!-- Polymorphic subject via separate lookups -->
+    <fields>
+        <fullName>Account__c</fullName>
+        <description>Account being verified (if applicable).</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Verification Jobs</relationshipLabel>
+        <relationshipName>Verification_Jobs_Account</relationshipName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <description>Contact being verified (if applicable).</description>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Verification Jobs</relationshipLabel>
+        <relationshipName>Verification_Jobs_Contact</relationshipName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>Verification type.</description>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value><fullName>IDV</fullName><default>true</default><label>IDV</label></value>
+                <value><fullName>Sanctions</fullName><default>false</default><label>Sanctions</label></value>
+                <value><fullName>PEP</fullName><default>false</default><label>PEP</label></value>
+                <value><fullName>Adverse Media</fullName><default>false</default><label>Adverse Media</label></value>
+                <value><fullName>Doc</fullName><default>false</default><label>Document</label></value>
+                <value><fullName>KYB</fullName><default>false</default><label>KYB</label></value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>Job processing status.</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value><fullName>Queued</fullName><default>true</default><label>Queued</label></value>
+                <value><fullName>In Progress</fullName><default>false</default><label>In Progress</label></value>
+                <value><fullName>Completed</fullName><default>false</default><label>Completed</label></value>
+                <value><fullName>Failed</fullName><default>false</default><label>Failed</label></value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+
+    <fields>
+        <fullName>Provider__c</fullName>
+        <description>Provider used for this verification (label string or key).</description>
+        <externalId>false</externalId>
+        <label>Provider</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+    </fields>
+
+    <fields>
+        <fullName>RequestPayload__c</fullName>
+        <description>Request JSON sent to provider (minimized as needed).</description>
+        <externalId>false</externalId>
+        <label>Request Payload</label>
+        <length>32768</length>
+        <required>false</required>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+
+    <fields>
+        <fullName>ResponseSummary__c</fullName>
+        <description>Summary of response from provider.</description>
+        <externalId>false</externalId>
+        <label>Response Summary</label>
+        <length>32768</length>
+        <required>false</required>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+
+    <label>Verification Job</label>
+    <nameField>
+        <displayFormat>VJ-{00000}</displayFormat>
+        <label>Verification Job Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Verification Jobs</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Paper_Color__c</fullName>
+    <label>Paper Color</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>White</fullName>
+                <default>true</default>
+                <label>White</label>
+            </value>
+            <value>
+                <fullName>Cream</fullName>
+                <default>false</default>
+                <label>Cream</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <description>Interior paper color (white standard, cream premium)</description>
+</CustomField>

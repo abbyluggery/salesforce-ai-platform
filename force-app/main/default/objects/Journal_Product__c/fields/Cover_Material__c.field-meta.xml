@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cover_Material__c</fullName>
+    <label>Cover Material</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Matte Paper</fullName>
+                <default>false</default>
+                <label>Matte Paper</label>
+            </value>
+            <value>
+                <fullName>Glossy Paper</fullName>
+                <default>false</default>
+                <label>Glossy Paper</label>
+            </value>
+            <value>
+                <fullName>Hardcover Board</fullName>
+                <default>false</default>
+                <label>Hardcover Board</label>
+            </value>
+            <value>
+                <fullName>Linen - Black</fullName>
+                <default>false</default>
+                <label>Linen - Black</label>
+            </value>
+            <value>
+                <fullName>Linen - Navy</fullName>
+                <default>false</default>
+                <label>Linen - Navy</label>
+            </value>
+            <value>
+                <fullName>Linen - Burgundy</fullName>
+                <default>false</default>
+                <label>Linen - Burgundy</label>
+            </value>
+            <value>
+                <fullName>Linen - Forest Green</fullName>
+                <default>false</default>
+                <label>Linen - Forest Green</label>
+            </value>
+            <value>
+                <fullName>Linen - Cream</fullName>
+                <default>false</default>
+                <label>Linen - Cream</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <description>Cover material type (paper, hardcover, linen)</description>
+</CustomField>

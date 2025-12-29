@@ -106,7 +106,7 @@ public with sharing class JobPostingTriggerHandler {
      * Uses keyword matching to identify seniority level
      *
      * @param description The job description text
-     * @return String The detected experience level (Entry Level, Mid-Level, Senior, Lead/Principal, or null)
+     * @return String The detected experience level (Entry Level, Mid Level, Senior, Executive, or null)
      */
     private static String detectExperienceLevel(String description) {
         if (String.isBlank(description)) {
@@ -131,18 +131,18 @@ public with sharing class JobPostingTriggerHandler {
         if (descLower.contains('8+ year') || descLower.contains('10+ year') ||
             descLower.contains('lead') || descLower.contains('principal') ||
             descLower.contains('staff') || descLower.contains('architect')) {
-            return 'Lead/Principal';
+            return 'Executive';  // Changed from 'Lead/Principal' to match picklist
         }
 
         if (descLower.contains('2-3 year') || descLower.contains('2-4 year') ||
             descLower.contains('3-5 year') || descLower.contains('mid-level') ||
             descLower.contains('mid level') || descLower.contains('intermediate')) {
-            return 'Mid-Level';
+            return 'Mid Level';  // Changed from 'Mid-Level' to match picklist (no hyphen)
         }
 
-        // Default to Mid-Level if years mentioned but not specific
+        // Default to Mid Level if years mentioned but not specific
         if (descLower.contains('year') && descLower.contains('experience')) {
-            return 'Mid-Level';
+            return 'Mid Level';  // Changed from 'Mid-Level' to match picklist
         }
 
         return null; // Unable to detect

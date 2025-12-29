@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fulfillment_Status__c</fullName>
+    <label>Fulfillment Status</label>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pending</fullName>
+                <default>true</default>
+                <label>Pending</label>
+            </value>
+            <value>
+                <fullName>Submitted to Lulu</fullName>
+                <default>false</default>
+                <label>Submitted to Lulu</label>
+            </value>
+            <value>
+                <fullName>In Production</fullName>
+                <default>false</default>
+                <label>In Production</label>
+            </value>
+            <value>
+                <fullName>In Transit</fullName>
+                <default>false</default>
+                <label>In Transit</label>
+            </value>
+            <value>
+                <fullName>Shipped</fullName>
+                <default>false</default>
+                <label>Shipped</label>
+            </value>
+            <value>
+                <fullName>Delivered</fullName>
+                <default>false</default>
+                <label>Delivered</label>
+            </value>
+            <value>
+                <fullName>Canceled</fullName>
+                <default>false</default>
+                <label>Canceled</label>
+            </value>
+            <value>
+                <fullName>Lulu Error</fullName>
+                <default>false</default>
+                <label>Lulu Error</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <description>Current fulfillment status of the order</description>
+</CustomField>

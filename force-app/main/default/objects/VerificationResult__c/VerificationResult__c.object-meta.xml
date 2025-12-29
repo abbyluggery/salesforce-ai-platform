@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Normalized result details for a given Verification Job; may include hits and confidence.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+
+    <!-- Link to Verification Job -->
+    <fields>
+        <fullName>VerificationJob__c</fullName>
+        <description>Parent verification job that produced this result.</description>
+        <externalId>false</externalId>
+        <label>Verification Job</label>
+        <referenceTo>VerificationJob__c</referenceTo>
+        <relationshipLabel>Verification Results</relationshipLabel>
+        <relationshipName>Verification_Results</relationshipName>
+        <deleteConstraint>Cascade</deleteConstraint>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+
+    <!-- Link back to Account/Contact for convenience queries -->
+    <fields>
+        <fullName>Account__c</fullName>
+        <description>Account associated with the result (denormalized).</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Verification Results</relationshipLabel>
+        <relationshipName>Verification_Results_Account</relationshipName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <description>Contact associated with the result (denormalized).</description>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Verification Results</relationshipLabel>
+        <relationshipName>Verification_Results_Contact</relationshipName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+
+    <fields>
+        <fullName>Passed__c</fullName>
+        <description>Whether the verification passed.</description>
+        <externalId>false</externalId>
+        <label>Passed</label>
+        <type>Checkbox</type>
+        <defaultValue>false</defaultValue>
+    </fields>
+
+    <fields>
+        <fullName>PEP__c</fullName>
+        <description>PEP match present.</description>
+        <externalId>false</externalId>
+        <label>PEP</label>
+        <type>Checkbox</type>
+        <defaultValue>false</defaultValue>
+    </fields>
+
+    <fields>
+        <fullName>SanctionsHits__c</fullName>
+        <description>Number of sanctions list hits.</description>
+        <externalId>false</externalId>
+        <label>Sanctions Hits</label>
+        <precision>5</precision>
+        <scale>0</scale>
+        <required>false</required>
+        <type>Number</type>
+    </fields>
+
+    <fields>
+        <fullName>AdverseMediaHits__c</fullName>
+        <description>Number of adverse media hits.</description>
+        <externalId>false</externalId>
+        <label>Adverse Media Hits</label>
+        <precision>5</precision>
+        <scale>0</scale>
+        <required>false</required>
+        <type>Number</type>
+    </fields>
+
+    <fields>
+        <fullName>Confidence__c</fullName>
+        <description>Confidence score (0-100).</description>
+        <externalId>false</externalId>
+        <label>Confidence</label>
+        <precision>3</precision>
+        <scale>0</scale>
+        <required>false</required>
+        <type>Number</type>
+    </fields>
+
+    <fields>
+        <fullName>Findings__c</fullName>
+        <description>Normalized JSON findings payload.</description>
+        <externalId>false</externalId>
+        <label>Findings</label>
+        <length>32768</length>
+        <required>false</required>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+
+    <label>Verification Result</label>
+    <nameField>
+        <displayFormat>VR-{00000}</displayFormat>
+        <label>Verification Result Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Verification Results</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

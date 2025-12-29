@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Risk Summary" icon-name="utility:warning">
+        <div class="slds-p-horizontal_small slds-p-vertical_x-small">
+            <template if:true={risk}>
+                <div class="slds-text-heading_small">{risk.band}</div>
+                <div class="slds-m-top_x-small">Score: {risk.score}</div>
+                <div class="slds-m-top_x-small">Jurisdiction: {risk.jurisdiction}</div>
+                <div class="slds-m-top_x-small slds-truncate" title={risk.nextAction}>Next Action: {risk.nextAction}</div>
+            </template>
+            <template if:false={risk}>
+                <div class="slds-text-color_weak">No assessment found.</div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

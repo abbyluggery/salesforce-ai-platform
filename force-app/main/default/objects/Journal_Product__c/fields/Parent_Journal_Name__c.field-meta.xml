@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Parent_Journal_Name__c</fullName>
+    <label>Parent Journal Name</label>
+    <length>255</length>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <description>Base journal name for grouping variations (e.g., "Gratitude Journal" for all SKU variations)</description>
+</CustomField>

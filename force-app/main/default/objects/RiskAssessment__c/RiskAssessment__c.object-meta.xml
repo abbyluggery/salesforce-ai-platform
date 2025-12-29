@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Unified risk assessment aggregated from multiple verification results.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+
+    <!-- Lookup to Account -->
+    <fields>
+        <fullName>Account__c</fullName>
+        <description>Account assessed for risk.</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Risk Assessments</relationshipLabel>
+        <relationshipName>Risk_Assessments_Account</relationshipName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+
+    <!-- Lookup to Contact -->
+    <fields>
+        <fullName>Contact__c</fullName>
+        <description>Contact assessed for risk (B2C flows).</description>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Risk Assessments</relationshipLabel>
+        <relationshipName>Risk_Assessments_Contact</relationshipName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+
+    <fields>
+        <fullName>Score__c</fullName>
+        <description>Numerical risk score (0-100 where higher = higher risk).</description>
+        <externalId>false</externalId>
+        <label>Score</label>
+        <precision>3</precision>
+        <scale>0</scale>
+        <required>false</required>
+        <type>Number</type>
+    </fields>
+
+    <fields>
+        <fullName>Band__c</fullName>
+        <description>Risk banding derived from score.</description>
+        <externalId>false</externalId>
+        <label>Band</label>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>true</default>
+                    <label>Low</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+
+    <fields>
+        <fullName>Jurisdiction__c</fullName>
+        <description>Primary jurisdiction/policy applied.</description>
+        <externalId>false</externalId>
+        <label>Jurisdiction</label>
+        <length>64</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+
+    <fields>
+        <fullName>ProviderBreakdown__c</fullName>
+        <description>JSON summary of provider-specific results.</description>
+        <externalId>false</externalId>
+        <label>Provider Breakdown</label>
+        <length>32768</length>
+        <required>false</required>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+
+    <fields>
+        <fullName>NextAction__c</fullName>
+        <description>System-suggested next-best action.</description>
+        <externalId>false</externalId>
+        <label>Next Action</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+
+    <label>Risk Assessment</label>
+    <nameField>
+        <displayFormat>RA-{00000}</displayFormat>
+        <label>Risk Assessment Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Risk Assessments</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

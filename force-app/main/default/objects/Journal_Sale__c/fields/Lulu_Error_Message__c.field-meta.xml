@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lulu_Error_Message__c</fullName>
+    <label>Lulu Error Message</label>
+    <length>255</length>
+    <type>Text</type>
+    <description>Error message from Lulu API if submission failed</description>
+</CustomField>

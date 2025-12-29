@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Preferences for job search filtering</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Search Preference</label>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Marketing Campaign Dashboard" icon-name="custom:custom18">
+        <div class="slds-m-around_medium">
+            <lightning-button label="Create New Campaign" onclick={handleCreateCampaign} variant="brand"></lightning-button>
+            
+            <lightning-datatable
+                data={campaigns}
+                columns={columns}
+                key-field="id"
+                onrowaction={handleRowAction}>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

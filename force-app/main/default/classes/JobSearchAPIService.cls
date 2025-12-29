@@ -329,10 +329,12 @@ public with sharing class JobSearchAPIService {
         List<Job_Posting__c> jobsToAnalyze = Database.query(query);
 
         if (!jobsToAnalyze.isEmpty()) {
-            // Queue each job for async AI analysis
+            // Collect IDs and use the existing enqueueAnalysis method
+            List<Id> jobIds = new List<Id>();
             for (Job_Posting__c job : jobsToAnalyze) {
-                System.enqueueJob(new JobPostingAnalysisQueue(job.Id));
+                jobIds.add(job.Id);
             }
+            JobPostingAnalysisQueue.enqueueAnalysis(jobIds);
             System.debug(LoggingLevel.INFO, 'Queued ' + jobsToAnalyze.size() + ' jobs for AI analysis');
         }
     }

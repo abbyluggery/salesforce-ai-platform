@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Analytics_Update__c</fullName>
+    <label>Last Analytics Update</label>
+    <type>DateTime</type>
+    <description>Last time Pinterest analytics were synced</description>
+</CustomField>

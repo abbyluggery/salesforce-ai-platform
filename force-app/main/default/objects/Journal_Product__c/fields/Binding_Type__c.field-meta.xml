@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Binding_Type__c</fullName>
+    <label>Binding Type</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Perfect Bound</fullName>
+                <default>false</default>
+                <label>Perfect Bound</label>
+            </value>
+            <value>
+                <fullName>Coil Bound</fullName>
+                <default>false</default>
+                <label>Coil Bound</label>
+            </value>
+            <value>
+                <fullName>Hardcover</fullName>
+                <default>false</default>
+                <label>Hardcover</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <description>Type of binding used for journal</description>
+</CustomField>

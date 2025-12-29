@@ -1,6 +1,6 @@
 # Enterprise Salesforce Platform with AI Integration
 
-A comprehensive Salesforce application featuring AI-powered job search automation, resume generation, interview preparation, wellness tracking, and meal planning - demonstrating enterprise-grade architecture across **90 Apex classes** and **28 custom objects**.
+A comprehensive Salesforce application featuring AI-powered job search automation, resume generation, interview preparation, wellness tracking, and meal planning - demonstrating enterprise-grade architecture across **112 Apex classes** and **47 custom objects**.
 
 > **Last Updated:** December 29, 2025
 
@@ -60,7 +60,7 @@ This platform combines multiple integrated systems built on Salesforce Lightning
 │   │                           ▼                                        │    │
 │   │   ┌─────────────────────────────────────────────────────────────┐ │    │
 │   │   │                   DATA LAYER                                 │ │    │
-│   │   │  28 Custom Objects  │  200+ Fields  │  Custom Metadata      │ │    │
+│   │   │  47 Custom Objects  │  300+ Fields  │  Custom Metadata      │ │    │
 │   │   └─────────────────────────────────────────────────────────────┘ │    │
 │   │                      SERVICE LAYER                                 │    │
 │   └────────────────────────────────────────────────────────────────────┘    │
@@ -245,14 +245,14 @@ This platform combines multiple integrated systems built on Salesforce Lightning
 
 | Metric | Count |
 |--------|-------|
-| Apex Classes | 90 |
-| Custom Objects | 28 |
-| Custom Metadata Types | 3 |
-| Custom Fields | 200+ |
-| Lightning Web Components | 6 |
+| Apex Classes | 112 |
+| Custom Objects | 47 |
+| Custom Metadata Types | 8 |
+| Custom Fields | 300+ |
+| Lightning Web Components | 17 |
 | Flows | 18 |
 | Triggers | 6 |
-| Test Classes | 30+ |
+| Test Classes | 35+ |
 | Code Coverage | 75%+ |
 
 ### Key Apex Classes
@@ -295,6 +295,17 @@ This platform combines multiple integrated systems built on Salesforce Lightning
 | `shoppingListManager` | Multi-store list management with coupon integration |
 | `wellnessTracker` | Daily energy and mood check-in interface |
 | `energySchedulerUI` | Energy pattern visualization and recommendations |
+| `digestPreview` | Morning digest preview component |
+| `emailTemplateManager` | Email template management interface |
+| `marketingCampaignDashboard` | Marketing campaign analytics dashboard |
+| `morningConsole` | Morning routine console |
+| `onboardingWizard` | User onboarding wizard |
+| `preferencesEditor` | User preferences editor |
+| `riskConsole` | Risk assessment console |
+| `riskWidget` | Risk indicator widget |
+| `supportPanel` | Support resources panel |
+| `tableauEmbed` | Tableau dashboard embedding |
+| `uboGraph` | Ultimate beneficial owner visualization |
 
 ---
 
@@ -347,10 +358,10 @@ POST /services/apexrest/routine/daily
 
 **For technical reviewers**, this project shows:
 
-1. **Enterprise Architecture** - 28-object data model with proper relationships, triggers, and automation
+1. **Enterprise Architecture** - 47-object data model with proper relationships, triggers, and automation
 2. **AI Integration** - Production-ready Claude API integration with error handling and hallucination prevention
-3. **Apex Expertise** - 90 classes covering REST APIs, Queueable, Batch, Scheduled, Invocable patterns
-4. **Full-Stack Salesforce** - 6 LWC components, Visualforce PDF, Flow Builder, Reports/Dashboards
+3. **Apex Expertise** - 112 classes covering REST APIs, Queueable, Batch, Scheduled, Invocable patterns
+4. **Full-Stack Salesforce** - 17 LWC components, Visualforce PDF, Flow Builder, Reports/Dashboards
 5. **Algorithm Design** - NLP parsing, fuzzy matching, scoring algorithms
 6. **Test Coverage** - 75%+ coverage with positive, negative, and bulk testing
 

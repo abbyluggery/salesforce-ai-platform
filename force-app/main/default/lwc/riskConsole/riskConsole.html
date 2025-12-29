@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Risk Console" icon-name="utility:dashboard">
+        <div class="slds-p-around_small">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                    <lightning-input type="text" label="Subject Id (Account/Contact)" value={subjectId} onchange={handleSubjectChange}></lightning-input>
+                    <lightning-combobox label="Verification Type" value={verificationType} options={typeOptions} onchange={handleTypeChange}></lightning-combobox>
+                    <lightning-input type="text" label="Provider Key" value={providerKey} onchange={handleProviderChange}></lightning-input>
+                    <lightning-button class="slds-m-top_small" label="Run Screening (POC)" variant="brand" onclick={runScreening}></lightning-button>
+                    <lightning-button class="slds-m-top_small slds-m-left_x-small" label="Aggregate Risk (POC)" onclick={aggregateRisk}></lightning-button>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                    <template if:true={lastMessage}>
+                        <lightning-formatted-text value={lastMessage}></lightning-formatted-text>
+                    </template>
+                    <template if:true={riskAssessmentId}>
+                        <c-risk-widget risk-assessment-id={riskAssessmentId}></c-risk-widget>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

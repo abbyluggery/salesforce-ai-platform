@@ -18,7 +18,7 @@ public with sharing class ClaudeAPIService {
     private static final String API_VERSION = '2023-06-01';
     private static final String MODEL = 'claude-3-haiku-20240307'; // Claude 3 Haiku (verified working)
     private static final Integer MAX_TOKENS = 4000; // Maximum response length
-    private static final Integer TIMEOUT_MS = 60000; // 60 second timeout
+    private static final Integer TIMEOUT_MS = 120000; // 120 second timeout (max allowed)
 
     // API endpoint - using direct endpoint with Custom Metadata for API key
     // LEARNING: Custom Metadata provides secure storage for configuration values
@@ -203,6 +203,45 @@ public with sharing class ClaudeAPIService {
     }
 
     /**
+     * @description Cleans and truncates job description to reduce API payload size
+     * Removes HTML tags, entities, and limits length to prevent timeout issues
+     *
+     * @param description The raw job description
+     * @return String The cleaned and truncated description
+     */
+    private static String cleanDescription(String description) {
+        if (String.isBlank(description)) {
+            return '';
+        }
+
+        String cleaned = description;
+
+        // Remove HTML tags
+        cleaned = cleaned.replaceAll('<[^>]+>', ' ');
+
+        // Replace common HTML entities
+        cleaned = cleaned.replace('&nbsp;', ' ');
+        cleaned = cleaned.replace('&amp;', '&');
+        cleaned = cleaned.replace('&lt;', '<');
+        cleaned = cleaned.replace('&gt;', '>');
+        cleaned = cleaned.replace('&quot;', '"');
+        cleaned = cleaned.replace('&#39;', '\'');
+        cleaned = cleaned.replace('&bull;', '•');
+        cleaned = cleaned.replace('&middot;', '·');
+
+        // Remove excessive whitespace
+        cleaned = cleaned.replaceAll('\\s+', ' ');
+
+        // Trim and truncate to 8000 characters (plenty for analysis, reduces API load)
+        cleaned = cleaned.trim();
+        if (cleaned.length() > 8000) {
+            cleaned = cleaned.substring(0, 8000) + '... [truncated]';
+        }
+
+        return cleaned;
+    }
+
+    /**
      * @description Constructs the prompt for Claude to analyze a job posting
      * Uses the decision framework from your holistic roadmap
      *
@@ -265,7 +304,9 @@ public with sharing class ClaudeAPIService {
         }
 
         if (String.isNotBlank(jobPosting.Description__c)) {
-            prompt += '\n**Description:**\n' + jobPosting.Description__c + '\n';
+            // Clean and truncate description to avoid timeout issues
+            String cleanedDesc = cleanDescription(jobPosting.Description__c);
+            prompt += '\n**Description:**\n' + cleanedDesc + '\n';
         }
 
         prompt += '\n**Analysis Required:**\n';

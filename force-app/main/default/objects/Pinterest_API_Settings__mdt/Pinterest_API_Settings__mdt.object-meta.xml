@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Pinterest API Settings</label>
+    <pluralLabel>Pinterest API Settings</pluralLabel>
+    <visibility>Public</visibility>
+    <description>Stores Pinterest API credentials for secure access</description>
+</CustomObject>

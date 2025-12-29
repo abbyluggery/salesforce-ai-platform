@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Lulu API Settings</label>
+    <pluralLabel>Lulu API Settings</pluralLabel>
+    <visibility>Public</visibility>
+    <description>Stores Lulu Print API credentials for secure access</description>
+</CustomObject>

@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Tableau">
+        <div class="slds-p-around_small">
+            <template if:true={error}>
+                <c-error-panel errors={error}></c-error-panel>
+            </template>
+            <template if:false={error}>
+                <div class="controls slds-m-bottom_small">
+                    <lightning-input type="text" label="Tableau Base URL" value={tableauBaseUrl} onchange={handleBaseUrlChange}></lightning-input>
+                    <lightning-input type="text" label="Viz Path" value={vizPath} onchange={handleVizPathChange}></lightning-input>
+                    <lightning-button class="slds-m-top_small" label="Load Viz" variant="brand" onclick={initializeViz}></lightning-button>
+                    <lightning-button class="slds-m-top_small slds-m-left_x-small" label="Refresh" onclick={refreshViz}></lightning-button>
+                </div>
+                <div class="viz-container" lwc:dom="manual"></div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Condensed_Version__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>Is Condensed Version</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+    <description>TRUE if this version was condensed to meet coil binding 400-page limit</description>
+</CustomField>

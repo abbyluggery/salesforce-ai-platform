@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Policy configuration by jurisdiction defining required checks and re-screen intervals.</description>
+    <enableBulkApi>true</enableBulkApi>
+    <enableSharing>false</enableSharing>
+    <label>Jurisdiction Policy</label>
+    <pluralLabel>Jurisdiction Policies</pluralLabel>
+    <visibility>PackageProtected</visibility>
+    <nameField>
+        <label>Jurisdiction Policy Name</label>
+        <type>Text</type>
+    </nameField>
+    <fields>
+        <fullName>Country__c</fullName>
+        <description>ISO country code or region name.</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>64</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RequiredChecks__c</fullName>
+        <description>Comma-separated list of checks required (e.g., Sanctions,PEP,Adverse Media,IDV,KYB).</description>
+        <externalId>false</externalId>
+        <label>Required Checks</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>ReScreenIntervalDays__c</fullName>
+        <description>Days between mandatory re-screening.</description>
+        <externalId>false</externalId>
+        <label>Re-Screen Interval (Days)</label>
+        <precision>5</precision>
+        <scale>0</scale>
+        <required>false</required>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>ProviderPriority__c</fullName>
+        <description>Preferred provider order (JSON or CSV of provider keys).</description>
+        <externalId>false</externalId>
+        <label>Provider Priority</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+    </fields>
+</CustomObject>

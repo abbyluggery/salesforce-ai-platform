@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lulu_Job_ID__c</fullName>
+    <label>Lulu Job ID</label>
+    <length>100</length>
+    <type>Text</type>
+    <externalId>true</externalId>
+    <unique>false</unique>
+    <description>Print job ID from Lulu API for order tracking</description>
+</CustomField>

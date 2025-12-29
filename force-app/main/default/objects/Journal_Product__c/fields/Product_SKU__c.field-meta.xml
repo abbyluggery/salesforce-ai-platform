@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_SKU__c</fullName>
+    <externalId>true</externalId>
+    <label>Product SKU</label>
+    <length>50</length>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+    <description>Unique SKU identifier (e.g., GRAT-6x9-HC for Gratitude Journal 6x9 Hardcover)</description>
+</CustomField>

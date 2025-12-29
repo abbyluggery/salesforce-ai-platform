@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Journal_Product__c</fullName>
+    <externalId>false</externalId>
+    <label>Journal Product</label>
+    <referenceTo>Journal_Product__c</referenceTo>
+    <relationshipLabel>Journal Sales</relationshipLabel>
+    <relationshipName>Journal_Sales</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>true</trackHistory>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    <description>Link to journal product that was sold</description>
+</CustomField>

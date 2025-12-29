@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Category__c</fullName>
+    <label>Category</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Moon &amp; Lunar</fullName>
+                <default>false</default>
+                <label>Moon &amp; Lunar</label>
+            </value>
+            <value>
+                <fullName>Wellness &amp; Mental Health</fullName>
+                <default>false</default>
+                <label>Wellness &amp; Mental Health</label>
+            </value>
+            <value>
+                <fullName>Spiritual &amp; Witchcraft</fullName>
+                <default>false</default>
+                <label>Spiritual &amp; Witchcraft</label>
+            </value>
+            <value>
+                <fullName>LGBTQIA+</fullName>
+                <default>false</default>
+                <label>LGBTQIA+</label>
+            </value>
+            <value>
+                <fullName>Practical Life</fullName>
+                <default>false</default>
+                <label>Practical Life</label>
+            </value>
+            <value>
+                <fullName>Garden &amp; Homestead</fullName>
+                <default>false</default>
+                <label>Garden &amp; Homestead</label>
+            </value>
+            <value>
+                <fullName>Fitness &amp; Wellness</fullName>
+                <default>false</default>
+                <label>Fitness &amp; Wellness</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <description>Journal category for filtering and organization</description>
+</CustomField>

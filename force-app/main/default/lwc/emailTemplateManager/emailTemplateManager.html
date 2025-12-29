@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Email Template Manager" icon-name="custom:custom18">
+        <div class="slds-m-around_medium">
+            <lightning-button label="Create New Template" onclick={handleCreateTemplate} variant="brand"></lightning-button>
+            
+            <lightning-datatable
+                data={templates}
+                columns={columns}
+                key-field="id"
+                onrowaction={handleRowAction}>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

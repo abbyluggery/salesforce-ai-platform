@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Foil_Stamp_Color__c</fullName>
+    <label>Foil Stamp Color</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>None</fullName>
+                <default>true</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>Gold</fullName>
+                <default>false</default>
+                <label>Gold</label>
+            </value>
+            <value>
+                <fullName>Silver</fullName>
+                <default>false</default>
+                <label>Silver</label>
+            </value>
+            <value>
+                <fullName>Rose Gold</fullName>
+                <default>false</default>
+                <label>Rose Gold</label>
+            </value>
+            <value>
+                <fullName>Copper</fullName>
+                <default>false</default>
+                <label>Copper</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <description>Foil stamping color for luxury tier products</description>
+</CustomField>
